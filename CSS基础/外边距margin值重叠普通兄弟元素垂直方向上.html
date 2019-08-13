@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>外边距margin值重叠普通兄弟元素垂直方向上.html</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	.father1{
+	/*height: 200px;*/
+	overflow: hidden;
+	/*background-color: blue;*/
+	}
+	.father2{
+		/*height: 200px;*/
+		/*overflow: hidden;*/
+	}
+
+	.box1{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		margin-bottom: 200px;
+	}
+	.box2{
+		width: 100px;
+		height: 100px;
+		background-color: green;
+		margin-top: 100px;
+	}	
+	</style>
+	</head>
+<body>
+	<div class="father1">
+	<div class="box1"></div>
+	</div>
+	<div class="father2">
+	<div class="box2"></div>
+	</div>
+	</body>
+</html>

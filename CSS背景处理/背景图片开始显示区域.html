@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景图片开始显示区域.html</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+			border:10px dashed red;
+			padding:30px;
+			margin:0 auto;
+			background-repeat: no-repeat;
+			background-image: url(http://d.hiphotos.baidu.com/image/h%3D300/sign=8a2bd91135c79f3d90e1e2308aa0cdbc/f636afc379310a55f00f421ab94543a982261030.jpg);
+		}
+		div:first-child{
+			background-origin: padding-box;
+		}
+		div:nth-child(2){
+			background-origin:border-box;
+		}
+		div:nth-child(3){
+			background-origin:content-box;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

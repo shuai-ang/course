@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画的状态.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin:50px auto;
+			animation-name: sport;
+			animation-duration: 2s; 
+			animation: sport 1s linear 1s;
+			/*animation-fill-mode: backwards;*/
+			/*animation-fill-mode: forwards;*/
+			animation-fill-mode: both;
+		}
+			@keyframes sport{
+				 0%{
+					transform: rotate(10deg);
+				 }
+				  25%{
+					transform: rotate(30deg);
+				 }
+				  50%{
+					transform: rotate(60deg);
+				 }
+				  75%{
+					transform: rotate(120deg);
+				 }
+				  100%{
+					transform: rotate(210deg);
+				 }
+			}
+		
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+</body>
+</html>

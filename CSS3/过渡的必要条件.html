@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过渡的必要条件.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/*transition-property: width,height,opacity;
+			transition-duration: 1s,2s,1s;
+			transition-delay: 1s;*/
+			/*transition-timing-function: ease;*/
+			/*transition-timing-function: linear;*/
+			/*transition-timing-function: ease-in;*/
+			/*transition:width 1s linear 1s,height 1s linear 1s;*/
+			/*transition:width 1s linear 1s,height 1s linear 1s,opacity 1s linear 1s;*/
+			transition:all 2s;
+		}
+		div:hover{
+			width: 200px;
+			height: 200px;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

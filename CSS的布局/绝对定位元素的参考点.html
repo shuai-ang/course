@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位元素的参考点.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 1000px;
+		}
+		.grfather{
+			/*position: relative;*/
+			width: 500px;
+			height: 500px;
+			background-color: red;
+			margin:0 auto;
+			padding:20px;
+			overflow: hidden;
+		}
+		.father{
+			position: relative;
+			width:300px;
+			height: 300px;
+			background-color: green;
+			margin: 50px auto;
+		}
+		.son{
+			position:fixed;
+			top: 300px;
+			left:50%;
+			margin-left:-50px;
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="grfather">
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+</html>

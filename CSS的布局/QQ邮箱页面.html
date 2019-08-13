@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ邮箱页面.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.clearfix:after{
+			content: "";
+			clear: both;
+			display:block;
+			height: 0;
+			visibility:hidden;
+		}
+		.clearfix{
+			*zoom:1;
+		}
+		.container{
+			width: 100%;
+			height: 800px;
+			border: 1px solid #d6dfea; 
+			/*background-color: green;*/
+		}
+	header{
+		width: 100%;
+		height: 100px;
+		border-bottom: 1px solid #d6dfea;
+		background-color: #eff4fa;
+	}
+	.logo{
+		float: left;
+		margin-top: 20px;
+		margin-left: 40px;
+	}
+	.header-link {
+		float: right;
+		margin-top: 30px;
+		padding-right: 50px;
+		line-height: 40px;
+		text-align: right;
+	}
+	li{
+		float: left;
+	}
+	a{
+		font-size: 16px;
+		color:#1d5494;
+		text-decoration: none;
+	}
+	a:hover{
+		text-decoration: underline;
+	}
+	section{
+		width: 100%;
+		height: 600px;
+		/*background-color: orange;*/
+		margin:50px auto;
+	}
+	.content{
+		float:left;
+		margin-top: 50px;
+		margin-left: 400px;
+	}
+	.user-info{
+		float: right;
+		width: 350px;
+		height: 400px;
+		border: 1px solid #d6dfea;
+		border-radius: 20px;
+		margin-top: 40px;
+		margin-right: 200px;
+	}
+	.login{
+		height: 50px;
+		border-bottom: 1px solid #d6dfea;
+		line-height: 50px;
+		text-align: center;
+	}
+	.login p:first-child{
+		
+	}
+	.name1{
+		width: 350px;
+		height: 80px;
+	}
+	.check{
+		width:40px;
+		height: 15px;
+		margin-top: 10px;
+		font-size: 12px;
+		line-height: 15px;
+	}
+	.b1{
+		width: 300px;
+		height: 50px;
+		background-color: #069;
+		margin-top: 10px;
+		border:1px solid #d6dfea;
+		border-radius: 2px;
+		font-size: 18px;
+	}
+	input{
+		margin-left:20px;
+		width:300px;
+		height: 50px;
+	}
+	footer{
+		width: 100%;
+		height:70px; 
+		border-top: 1px solid #d6dfea;
+		background-color: #eff4fa;
+	}
+	.foot{
+		line-height: 70px;
+		text-align: center;
+	}
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<header class="clearfix">
+			<div class="logo">
+				<img src="./2.png">
+			</div>
+			<div class="header-link">
+				<ul>
+					<li>
+				<a href="#">基本版&nbsp;|&nbsp;</a>
+					</li>
+					<li>
+				<a href="#">ENGLISH&nbsp;|&nbsp;</a>
+				</li>
+				<li>
+				<a href="#">手机版&nbsp;|&nbsp;</a>
+				</li>
+				<li>
+				<a href="#">企业邮箱</a>
+				</li>
+			</ul>
+			</div>
+		</header>
+		<section class="clearfix">
+			<div class="content">
+				<img src="./3.png" width: 530px; height: 350px;>
+			</div>
+			<div class="user-info">
+				<div class="login">
+					<p>微信登录</p>
+					<p>QQ登录</p>
+				</div>
+				
+			<div class="name1">
+				<input type="text" name="username" placeholder="支持QQ号/邮箱/手机号登录">
+			</div>
+			<div>
+				<input type="password" name="serc" placeholder="QQ密码">
+			</div>
+			<div>
+				<input type="checkbox"  class="check">下次自动登录
+			</div>
+			<div>
+				<input type="button" value="登录" class="b1">
+			</div>
+			</div>
+		</section>
+		<footer>
+			<div class="foot">
+				<a href="#">关于腾讯</a>
+				&nbsp;|&nbsp;
+				<a href="#">服务条款</a>
+				&nbsp;|&nbsp;
+				<a href="#">隐私政策</a>
+				&nbsp;|&nbsp;
+				<a href="#">客服中心</a>
+				&nbsp;|&nbsp;
+				<a href="#">联系我们</a>
+				&nbsp;|&nbsp;
+				<a href="#">帮助中心</a>
+				&nbsp;|&nbsp;&copy;1998 - 2019 Tencent Inc. All Rights Reserved.
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
