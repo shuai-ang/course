@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全局变量2.html</title>
+	<script>
+		var a =1;
+		function fn1(){
+			console.log('fn1',a);//undefined
+			var a =3;
+			function fn2(){
+				console.log('fn2',a);//3
+			}
+			fn2();
+		}
+		console.log('global1',a);//1
+		fn1();
+		console.log('global2',a);//1
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

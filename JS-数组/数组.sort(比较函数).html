@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组.sort(比较函数).html</title>
+	<script>
+		var arr = [3,5,9,18,23,2,1,7];
+		var arr1 = arr.sort(function(n1,n2){
+			//console.log(n1,n2)
+			/*if(n1>n2){
+				return 1;
+			}else if(n1<n2){
+				return -1;
+			}else{
+				return 0;
+			}*/
+			return n1-n2;
+		})
+		console.log(arr);
+		console.log(arr1);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

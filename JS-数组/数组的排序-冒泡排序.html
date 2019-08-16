@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的排序-冒泡排序.html</title>
+	<script>
+		var arr = [3,5,9,18,23,2,1];
+		for(var i=0;i<arr.length;i++){
+			//console.log(arr);
+			var tmp = 0;
+			for(var j=i+1;j<arr.length;j++){
+				if(arr[i]>arr[j]){
+					tmp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=tmp;
+				}
+			}
+			//console.log(arr);
+		}
+		console.log(arr)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

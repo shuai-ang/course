@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取和设置属性的值.html</title>
+</head>
+<body>
+	<input type="text" id="txt" value='666' test='test111'>
+	<input type="button" id="btn" value="点击">
+	<textarea name="" id="content" cols="30" rows="10"></textarea>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oContent = document.getElementById('content');
+	oBtn.onclick = function(){
+		//var val = oTxt.value;
+		//oContent.value = val;
+		//var val = oTxt['value'];
+		//oContent['value'] = val;
+		var val = oTxt.getAttribute('value')
+		//var val = oTxt.value;
+		//var val = oTxt['value'];
+		console.log(val)
+		//oTxt.setAttribute('test','888');
+		//oTxt.test='888';
+		//oTxt["value"]='888';
+		oTxt.removeAttribute('value');
+	}
+</script>
+</html>

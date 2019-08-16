@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM节点类型.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+	var aOx = document.getElementById('ul1');
+	//var aLi = document.getElementsByTagName('li');
+	var aLi = aOx.childNodes;
+	console.log(aLi);
+	for(var i=0;i<aLi.length;i++){
+		//aLi[i].style.color='red';
+		//console.log(aLi[i].nodeType);
+		if(aLi[i].nodeType == 1){
+			aLi[i].style.color='red';
+		}
+	}
+	console.log(document);
+	console.log(document.nodeType);
+</script>
+</html>

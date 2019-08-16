@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作用域的决定1.html</title>
+	<script>
+		var age = 1;
+		function getAge(){
+			var age = 2;
+			return age;
+		}
+		alert(age);//1
+		alert(getAge());//2
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

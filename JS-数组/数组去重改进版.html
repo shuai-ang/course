@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重改进版.html</title>
+	<script>
+		var arr = [3,5,2,3,9,18,23,5,2,1,7];
+		function uniqueArray(arr){
+			var result = [];
+			for(var i=0;i<arr.length;i++){
+				if(result.indexOf(arr[i],0) == -1){
+					result.push(arr[i]);
+				}
+			}
+			return result;//3,5,2,9,18,23,1,7
+		}
+		var arr1 = uniqueArray(arr);
+		console.log(arr);
+		console.log(arr1)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
