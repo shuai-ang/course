@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>延迟型定时器.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*setTimeout(console.log('aaa'),3000);
+	function Sayhi(){
+		console.log('hi...')
+	}
+	setTimeout(Sayhi,3000);*/
+	var timer = setTimeout(function(){
+		console.log('123...')
+	},3000)
+	console.log('timer',timer)
+	clearTimeout(timer)
+</script>
+</html>

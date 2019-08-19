@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>演示案例.html</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var i=0;
+
+	oBtn.onclick = function(){
+		i++;
+		console.log(i);
+	}
+	setTimeout(function(){
+		console.log(i);
+	},2000)
+
+	i++;
+</script>
+</html>

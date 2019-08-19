@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>location对象.html</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+</body>
+<script>
+	console.log(document.location);
+	console.log(window.location);
+	console.log(window.location == document.location);
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		//window.location.assign('https://www.baidu.com')
+		//location.href = 'https://www.baidu.com'
+		window.location = 'https://www.baidu.com'
+	}
+</script>
+</html>

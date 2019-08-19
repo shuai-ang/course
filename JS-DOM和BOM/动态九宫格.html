@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态九宫格.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: relative;
+		}
+		.son{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="克隆">
+	<div id="box">
+		<div class="son">盒子</div>
+		<!-- <div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div> -->
+	</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var aDiv = document.getElementsByClassName('son');
+	var iHeight= 100;
+	var iWidth = 100;
+	var iMargin=15;
+	var allCol =3;
+	oBtn.onclick= function(){
+		var oDiv = aDiv[0].cloneNode();
+		oBox.appendChild(oDiv);
+		for(var i=0;i<aDiv.length;i++){
+			var iRow = parseInt(i / allCol);
+			var iCol = i % allCol;
+			aDiv[i].style.top= (iHeight + iMargin)*iRow+'px';
+			aDiv[i].style.left= (iHeight + iMargin)*iCol+'px';
+		}
+	}
+</script>
+</html>
