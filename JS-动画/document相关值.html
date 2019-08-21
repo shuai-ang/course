@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>document相关值.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(document.compatMode);/*标准模式,写DOCTYPE的页面按照标准模式解析,document.compatMode的返回值是CSS1Compat;
+	混杂模式(也叫怪异模式),不写DOCTYPE的页面按照混杂模式解析,document.compatMode的返回值是BackCompat*/
+	console.log('document.documentElement',document.documentElement == document.querySelector('html'));
+	console.log('document.body',document.body == document.querySelector('body'));
+	console.log(document.title)
+</script>
+</html>
