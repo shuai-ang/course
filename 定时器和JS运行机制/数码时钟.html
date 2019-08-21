@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #000;
+		}
+		#timer{
+			width: 300px;
+			font-size: 100px;
+			margin:100px auto;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		<!-- 12:00:00 -->
+	</div>
+</body>
+<script>
+	function to2Str(num){
+		if(num<10){
+			num='0'+num;
+		}else{
+			num=''+num;
+		}
+		return num;
+	}
+	var oTimer = document.getElementById('timer');
+	function handletTimer(){
+		var today = new Date();
+		// console.log(today);
+
+		var oHour = today.getHours();
+		var oMinute = today.getMinutes();
+		var oSecond = today.getSeconds();
+		//console.log(oHour);
+		oTimer.innerHTML = to2Str(oHour)+':'+to2Str(oMinute)+':'+to2Str(oSecond);
+	}
+	handletTimer();
+	setInterval(handletTimer,1000);
+</script>
+</html>

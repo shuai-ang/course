@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟-图片版.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #000;
+		}
+		#timer{
+			width: 400px;
+			font-size: 80px;
+			margin:100px auto;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		<img src="img/0.png" alt="">
+		<img src="img/0.png" alt="">
+		:
+		<img src="img/0.png" alt="">
+		<img src="img/0.png" alt="">
+		:
+		<img src="img/0.png" alt="">
+		<img src="img/0.png" alt="">
+	</div>
+</body>
+<script>
+	function to2Str(num){
+		if(num<10){
+			num='0'+num;
+		}else{
+			num=''+num;
+		}
+		return num;
+	}
+	var oTimer = document.getElementById('timer');
+	var aImg = oTimer.getElementsByTagName('img');
+	function handletTimer(){
+		var today = new Date();
+		console.log(today);
+
+		var iHour = today.getHours();
+		var iMinute = today.getMinutes();
+		var iSecond = today.getSeconds();
+		//console.log(oHour);
+		allTimers = to2Str(iHour)+to2Str(iMinute)+to2Str(iSecond);
+		console.log(allTimers[0]);
+		console.log(allTimers[1]);
+		console.log(allTimers[2]);
+		console.log(allTimers[3]);
+		console.log(allTimers[4]);
+		console.log(allTimers[5]);
+		// console.log(allTime.charAt(0))
+		// console.log(allTime.charAt(1))
+		// console.log(allTime.charAt(2))
+		// console.log(allTime.charAt(3))
+		// console.log(allTime.charAt(4))
+		// console.log(allTime.charAt(5))
+		for(var i=0;i<aImg.length;i++){
+			aImg[i].src = "img/"+allTimers[i]+'.png';
+		}
+	}
+	handletTimer();
+	setInterval(handletTimer,1000);
+</script>
+</html>
