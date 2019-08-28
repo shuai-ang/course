@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件处理程序.html</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+</body>
+<script>
+	function Sayhi(){
+		alert('hi.')
+	}
+	function show(){
+		alert('show..')
+	}
+	var oBtn = document.getElementById('btn');
+	//oBtn.onclick= Sayhi;
+	oBtn.addEventListener('click',Sayhi,true);
+	oBtn.addEventListener('click',show,true);
+	oBtn.addEventListener('click',function(){
+		alert('hello')},true);
+	oBtn.removeEventListener('click',show,true);
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件类型-鼠标事件.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin:100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	oBox.addEventListener('mousedown',function(){
+		console.log('mousedown')
+	},false)
+	oBox.addEventListener('mouseup',function(){
+		console.log('mouseup')
+	},false)
+	document.addEventListener('mousemove',function(){
+		// console.log('mouse mousemove')
+	},false)
+	document.addEventListener('mousewheel',function(){
+		console.log('mouse mousewheel')
+	},false)
+</script>
+</html>

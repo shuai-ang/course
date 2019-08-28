@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构造原型模式.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showName = function(){
+		console.log("I am " + this.name);
+	}
+	Person.prototype.LEGS = 2;
+	var person1 = new Person('Tom',18);
+	console.log(person1);
+	person1.showName();
+	console.log(person1.LEGS);
+	var person2 = new Person('Mary',20);
+	console.log(person2);
+	person2.showName();
+	console.log(person2.LEGS);
+	console.log(person1.showName == Person.prototype.showName);
+</script>
+</html>

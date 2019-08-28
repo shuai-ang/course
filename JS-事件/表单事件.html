@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单事件.html</title>
+</head>
+<body>
+	<form action="http://www.baidu.com" id="form1">
+		<input type="text" id="txt">
+		<input type="submit" id="sub" value="提交">
+		<input type="reset" id="res" value="重置">
+	</form>
+</body>
+<script>
+	var oForm = document.getElementById('form1');
+	var oTxt = document.getElementById('txt');
+	var oSub = document.getElementById('sub');
+	var oRes = document.getElementById('res');
+	oTxt.onfocus = function(){
+		console.log('onfocus..')
+	}
+	oTxt.onblur = function(){
+		console.log('onblur..')
+	}
+	oTxt.onchange = function(){
+		console.log('onchange..')
+	}
+	oTxt.oninput = function(){
+		console.log('oninput..')
+	}
+</script>
+</html>

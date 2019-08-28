@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new的作用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function show(){
+		var obj = new Object();
+		console.log(this);//show{}
+		this.name = 'Tom';
+		this.age = 18;
+		this.sayHi = function(){
+			console.log('hi...')
+		}
+		//return {a:1,b:2}   //return的是一个对象则返回对象
+		return  'aaa'    //return的是一个基本数据则返回this
+	}
+	show();
+	var obj = new show();
+	console.log('返回值',obj);
+	obj.sayHi();
+</script>
+</html>

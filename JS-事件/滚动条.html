@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动条.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: relative;
+			width: 500px;
+			height: 30px;
+			margin:100px auto;
+			background-color: yellow;
+		}
+		#box{
+			position: absolute;
+			top:0;
+			left: 0;
+			width: 30px;
+			height: 30px;
+			background-color: red;
+		}
+		#box1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="box"></div>
+	</div>
+	<div id="box1"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBox1 = document.getElementById('box1');
+	var oFather = document.getElementById('father');
+	var disX=0;
+	oBox.onmousedown = function(ev){
+		disX = ev.clientX - oBox.offsetLeft;
+
+		document.onmousemove = function(ev){
+		var l = ev.clientX - disX;
+		var scale = oBox.offsetLeft /(oFather.offsetWidth - oBox.offsetWidth);
+		if(l<0){
+			l = 0;
+		}else if(l>(oFather.offsetWidth - oBox.offsetWidth)){
+			l=(oFather.offsetWidth - oBox.offsetWidth);
+		}
+		oBox.style.left = l +'px';
+		oBox1.style.width = 100 + 500*scale +'px';
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件-下拉菜单.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			display: none;
+			width: 200px;
+			height: 600px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="点击">
+	<div id="box"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	oBtn.addEventListener('click',function(ev){
+		oBox.style.display = 'block';
+		ev.stopPropagation();
+		},false);
+	oBox.addEventListener('click',function(ev){
+		ev.stopPropagation();
+		},false);
+	document.addEventListener('click',function(){
+		oBox.style.display = 'none';
+		},false);
+</script>
+</html>

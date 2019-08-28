@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托.html</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="发布">
+	<ul id="ul1">
+		<li>1<a href="javascript:;" class="del">隐藏</a></li>
+		<li>2<a href="javascript:;" class="del">隐藏</a></li>
+		<li>3<a href="javascript:;" class="del">隐藏</a></li>
+		<li>4<a href="javascript:;" class="del">隐藏</a></li>
+		<li>5<a href="javascript:;" class="del">隐藏</a></li>
+		<li>6<a href="javascript:;" class="del">隐藏</a></li>
+		<li>7<a href="javascript:;" class="del">隐藏</a></li>
+	</ul>
+</body>
+<script>
+	var oUl = document.getElementById('ul1');
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var aA = document.getElementsByTagName('a');
+	oUl.onclick = function(ev){
+		//console.log(ev.target);
+		var oTarget = ev.target;
+		if(oTarget.className == "del"){
+			oUl.removeChild(oTarget.parentNode);
+		}
+	}
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		var oLi = document.createElement('li');
+		var oA = document.createElement('a');
+		oA.href='javascript:;';
+		oA.innerHTML = '删除';
+		oLi.innerHTML = val;
+		oA.onclick = function(){
+			oUl.removeChild(oLi);
+		}
+		oLi.appendChild(oA);
+		oUl.insertBefore(oLi,oUl.firstChild);
+		oTxt.value='';
+	}
+</script>
+</html>

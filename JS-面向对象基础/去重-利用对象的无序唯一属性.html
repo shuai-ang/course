@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去重-利用对象的无序唯一属性.html</title>
+</head>
+<script>
+	var arr = [11,22,44,66,44,22,33];
+	function uniqueArray(){
+		var result = [];
+		var obj = {};
+		for(var i=0;i<arr.length;i++){
+			//console.log(arr[i]);
+			obj[arr[i]] = "";
+		}
+		console.log(obj)
+		for(var attr in obj){
+			result.push(attr*1)
+		}
+		return result;
+	}
+	console.log(uniqueArray(arr))
+</script>
+<body>
+	
+</body>
+</html>

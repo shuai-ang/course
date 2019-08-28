@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件流-捕获.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin:100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oDiv = document.getElementById('box');
+	oDiv.addEventListener('click',function(){
+		console.log('oDiv click')},false);
+	document.addEventListener('click',function(){
+		console.log('document click')},false);
+	document.documentElement.addEventListener('click',function(){
+		console.log('document.documentElement click')},false);
+	window.addEventListener('click',function(){
+		console.log('document.window click')},false);
+	document.body.addEventListener('click',function(){
+		console.log('document.body click')},false);
+</script>
+</html>

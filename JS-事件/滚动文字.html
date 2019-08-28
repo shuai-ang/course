@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动文字.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			position: relative;
+			width: 330px;
+			height: 500px;
+			border: 1px solid #000;
+			margin:100px auto;
+			overflow: hidden;
+		}
+		#content{
+			width: 300px;
+			height: 500px;
+			position: relative;
+		}
+		#txt{
+			width: 300px;
+			position: absolute;
+			top:0;
+		}
+		#box{
+			position: absolute;
+			top:0;
+			left: 300px;
+			width: 30px;
+			height: 500px;
+			background-color: gray;
+		}
+		#btn{
+			position: absolute;
+			top:0;
+			left: 0;
+			width: 30px;
+			height: 30px;
+			background-color: red;
+		}
+	</style>	
+</head>
+<body>
+	<div id="wrap">
+		<div id="content">
+			<div id="txt">我是内容
+
+			《澳门日报》25日报道称，据澳门行政长官办公室消息，根据《澳门特别行政区基本法》及《行政长官选举法》的规定，澳门特别行政区第五任行政长官选举今日上午顺利举行。贺一诚在选举过程中，获得高票提名、高票当选，成为澳门特别行政区第五任行政长官候任人。行政长官崔世安对贺一诚成功当选，致以最诚挚的祝贺。
+
+崔世安指出，澳门特别行政区第五任行政长官选举依法有序进行，是澳门特别行政区贯彻落实“一国两制”、“澳人治澳”、高度自治方针的充分体现。他亦感谢行政长官选举委员会委员认真履行职责，完成选举第五任行政长官的使命。
+
+崔世安表示，中央对于澳门特别行政区行政长官人选标准的要求是一贯的，就是爱国爱澳、中央信任、有管治能力、澳门社会认可。贺一诚在选举期间，发表了题为“协同奋进 变革创新”的政纲，其内容主轴是“稳固成功态势 稳续和谐大局”，并在选举期间透过各种竞选活动，直接向澳门社会各界和广大市民介绍政纲内容和未来施政理念，同时深入了解社情民意，可以说得到社会各界人士的广泛认同和支持。崔世安有信心，贺一诚符合中央的要求，在正式就任后定能带领新一届的特区政府和澳门广大居民，持续推进“一国两制”的实践行稳致远，推动澳门特区继续取得下一阶段的新发展。
+
+报道称，崔世安将根据《澳门特别行政区基本法》及《行政长官选举法》的有关规定，在终审法院确认选举的总核算结果后，并在《澳门特别行政区公报》公告第五任行政长官选举的结果后，即向中央人民政府提交报告并提请中央人民政府予以任命。崔世安强调，现届政府将全力配合贺一诚筹组新一届政府的需要，共同确保政府顺利换届。</div>
+		</div>
+		<div id="box">
+			<div id="btn"></div>
+		</div>
+	</div>
+</body>
+<script>
+	function handleMove(){
+		
+			if(t<0){
+				t=0;
+			}else if(t>(oBox.offsetHeight - oBtn.offsetHeight)){
+				t=(oBox.offsetHeight - oBtn.offsetHeight);
+			}
+			var scale = t /(oBox.offsetHeight - oBtn.offsetHeight);
+			oBtn.style.top = t +'px';
+			oTxt.style.top = (oContent.offsetHeight - oTxt.offsetHeight)*scale +'px';
+	}
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	var oTxt = document.getElementById('txt');
+	var oContent = document.getElementById('content');
+	var oWrap = document.getElementById('wrap');
+	var disY = 0,t=0;
+	oBtn.onmousedown = function(ev){
+		disY = ev.clientY - oBtn.offsetTop;
+		document.onmousemove = function(ev){
+			var t = ev.clientY - disY;
+			var scale = oBtn.offsetTop /(oBox.offsetHeight - oBtn.offsetHeight);
+			if(t<0){
+				t=0;
+			}else if(t>(oBox.offsetHeight - oBtn.offsetHeight)){
+				t=(oBox.offsetHeight - oBtn.offsetHeight);
+			}
+			oBtn.style.top = t +'px';
+			oTxt.style.top = (oContent.offsetHeight - oTxt.offsetHeight)*scale +'px';
+			//handleMove();
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+	oWrap.onmousewheel = function(ev){
+		if(ev.wheelDelta>0){
+			t -= 10;
+		}else{
+			t += 10;
+		}
+		/*var scale = oBtn.offsetTop /(oBox.offsetHeight - oBtn.offsetHeight);
+			if(t<0){
+				t=0;
+			}else if(t>(oBox.offsetHeight - oBtn.offsetHeight)){
+				t=(oBox.offsetHeight - oBtn.offsetHeight);
+			}
+			oBtn.style.top = t +'px';
+			oTxt.style.top = (oContent.offsetHeight - oTxt.offsetHeight)*scale +'px';*/
+			handleMove();
+	}
+</script>
+</html>

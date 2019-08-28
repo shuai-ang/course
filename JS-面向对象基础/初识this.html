@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>初识this.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+		var person = {
+		name:"Tom",
+		//name:"Mike",
+		age:18,
+		friends:['Leo','Andy'],
+		sayHi:function(){
+			console.log(this);
+			console.log("Hi,my name is "+this.name +" I am " +this.age +" years old");
+		}
+		
+	}
+	person.sayHi();
+	console.log(person);
+</script>
+</html>
