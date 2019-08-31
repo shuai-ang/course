@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边界控制.html</title>
+	<script>
+		var str = "this is a dog,that is a pig.";
+		var reg = /is/g;
+		var reg1 = /\bis\b/g;
+		console.log(str.replace(reg,'*'))
+		console.log(str.replace(reg1,'*'))
+		var str1 = "2019-08-29";
+		var reg2 = /(\d{4})-(\d{2})-(\d{2})/;//() 把括号里面的正常表达匹配的结果当作一个原子来看,起到分组的效果,分组后可以通过反向引用来取得分组后的值,反向引用从$1开始
+		console.log(str1.replace(reg2,'$2/$3/$1'))
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

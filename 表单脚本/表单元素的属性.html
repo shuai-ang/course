@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素的属性.html</title>
+</head>
+<body>
+	<form action="https://www.baidu.com">
+		<div>
+		用户名：
+		<input type="text" name="username" id="txt" value="tom">
+		</div>
+		<div>
+		密码：
+		<input type="password" name="password">
+		</div>
+		<div>
+			性别：
+			<input type="radio" name="sex" checked>男
+			<input type="radio" name="sex">女
+		</div>
+		<div>
+			爱好：
+			<input type="checkbox" name="hobby" value="basketball">篮球
+			<input type="checkbox" name="hobby" value="football">足球
+			<input type="checkbox" name="hobby" value="tennis">网球
+		</div>
+		<input type="submit" name="submit" value="提交">
+	</form>
+</body>
+<script>
+	var oForm = document.forms[0];
+	var oTxt = oForm["username"];
+	var oSex = oForm.sex[0];
+	var oHobby = oForm.hobby[0];
+	console.log(oTxt)
+	//oTxt.disabled = true;
+	oTxt.readOnly = true;
+	//oSex.disabled = true;
+	oSex.readOnly = true;
+	oHobby.checked = true;
+	oTxt.focus();
+	//oTxt.blur();
+</script>
+</html>

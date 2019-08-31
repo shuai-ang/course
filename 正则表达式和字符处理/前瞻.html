@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前瞻.html</title>
+	<script>
+		var str = "ab ac a123 b4 6e a7@ g!";
+		var reg = /[a-z]/g;
+		var reg1 = /[a-z](?=\d)/g;//正向前瞻 exp(?=assert):匹配到exp的内容后再看前面的内容符合不符合assert,符合的话就匹配exp的内容
+		var reg2 = /[a-z](?!\d)/g;//负向前瞻 exp(?!assert):匹配到exp的内容后再看前面的内容符合不符合assert,不符合的话就匹配exp的内容
+		console.log(str);
+		console.log(str.replace(reg,'*'));
+		console.log(str.replace(reg1,'*'));
+		console.log(str.replace(reg2,'*'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

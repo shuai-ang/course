@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修正模式.html</title>
+	<script>
+		var str = "ABchisa ABagjsfi ABCtsaa";
+		var reg = /a/g;
+		var reg1 = /a/i;
+		var reg2 = /a/ig;
+		var reg3 = /a|A/g;
+		console.log(str.replace(reg,'*'))
+		console.log(str.replace(reg1,'*'))
+		console.log(str.replace(reg2,'*'))
+		console.log(str.replace(reg3,'*'))
+		console.log(reg.ignoreCase)
+		console.log(reg1.ignoreCase)
+		console.log(reg2.ignoreCase)
+		console.log(reg3.ignoreCase)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则对象的exec方法.html</title>
+	<script>
+		var str = "abc2018-08-08def2019-09-09ghi2020-02-02dfg";
+		var reg = /\d{4}-\d{2}-\d{2}/;
+		var reg1 = /\d{4}-\d{2}-\d{2}/g;
+		var reg2 = /(\d{4})-(\d{2})-(\d{2})/g;
+		var reg3 = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/g;
+		/*console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(str));*/
+		/*console.log(reg1.lastIndex);
+		console.log(reg1.exec(str));
+		console.log(reg1.lastIndex);
+		console.log(reg1.exec(str));
+		console.log(reg1.lastIndex);
+		console.log(reg1.exec(str));
+		console.log(reg1.lastIndex);
+		console.log(reg1.exec(str));
+		console.log(reg1.lastIndex);
+		console.log(reg1.exec(str));*/
+		/*console.log(reg2.lastIndex);
+		console.log(reg2.exec(str));
+		console.log(reg2.lastIndex);
+		console.log(reg2.exec(str));
+		console.log(reg2.lastIndex);
+		console.log(reg2.exec(str));
+		console.log(reg2.lastIndex);
+		console.log(reg2.exec(str));
+		console.log(reg2.lastIndex);
+		console.log(reg2.exec(str));*/
+		console.log(reg3.lastIndex);
+		console.log(reg3.exec(str));
+		console.log(reg3.lastIndex);
+		console.log(reg3.exec(str));
+		console.log(reg3.lastIndex);
+		console.log(reg3.exec(str));
+		console.log(reg3.lastIndex);
+		console.log(reg3.exec(str));
+		console.log(reg3.lastIndex);
+		console.log(reg3.exec(str));
+		console.log(reg3.lastIndex);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

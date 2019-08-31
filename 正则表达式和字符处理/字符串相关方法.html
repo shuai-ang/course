@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串相关方法.html</title>
+	<script>
+		var str = "    你好hello.worldEFG     ";
+		/*console.log(str.charAt(0));
+		console.log(str.charCodeAt(1));
+		console.log(str.indexOf('l'))
+		console.log(str.lastIndexOf('l'))
+		console.log(str.lastIndexOf('f'))//找不到时返回-1*/
+		console.log(encodeURIComponent("https://www.baidu.com"))
+		console.log(decodeURIComponent("https%3A%2F%2Fwww.baidu.com"))
+		console.log(str.concat('123'))
+		console.log(str.slice(2,5))//截取字符串,下标可以是负数,负数表示从尾部开始计算,包括起始下标但不包括结束下标
+		console.log(str.substr(2,5))
+		console.log(str.substr(-2,5))//截取字符串,下标可以是负数,负数表示从尾部开始计算
+		console.log(str.substring(2,5))//截取字符串,下标不可以是负数,负数从0开始计算,包括起始下标但不包括结束下标
+		console.log(str.toLowerCase())
+		console.log(str.toUpperCase())
+		console.log(str.trim())//去除字符串两边的空白
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
