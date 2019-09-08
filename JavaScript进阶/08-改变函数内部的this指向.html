@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08-改变函数内部的this指向.html</title>
+	<script>
+		function show(n1,n2){
+			console.log(this,n1,n2)
+		}
+		show(1,2);
+		//show.call(1,2);
+		//show.call(window,1,2);
+		//show.call(null,1,2);
+		show.apply({name:'tom'},[1,2]);
+		show.bind()(1,2)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
