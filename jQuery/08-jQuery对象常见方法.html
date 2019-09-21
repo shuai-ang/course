@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08-jQuery对象常见方法.html</title>
+</head>
+<body>
+	<div class="box">1</div>
+	<div class="box">2</div>
+	<div class="box1" data-key="3">3</div>
+	<div>4</div>
+	<div class="box">5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+	<div>10</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	/*
+	console.log($('div').index($('.box1')));
+	$('div').each(function(index,ele){
+		console.log(index,ele);
+		console.log(this);
+	})
+	*/
+	$(function(){
+		//console.log($('.box1').data('key'));
+		console.log($('.box').data('key','2'));
+		console.log($('.box').data());
+		console.log($('div').is('.box1'))
+	})
+</script>
+</html>

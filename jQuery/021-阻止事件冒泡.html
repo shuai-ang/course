@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-阻止事件冒泡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+			margin:50px auto;
+		}
+		.box2{
+			position: absolute;
+			top:100px;
+			left: 100px;
+			width: 200px;
+			height: 200px;
+			background-color: green;
+		}
+		.son{
+			position: absolute;
+			top:50px;
+			left: 50px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2">
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	$(function(){
+		$('.box1').on('click',function(){
+			alert('box1');
+		})
+		$('.box2').on('click',function(){
+			alert('box2');
+		})
+		$('.son').click(function(event){
+			event.stopPropagation();
+			alert('aaa');
+			//return false;
+		})
+	})
+</script>
+</html>

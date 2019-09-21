@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-自定义事件.html</title>
+</head>
+<body>
+	<div>div</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$('div').on('test',function(event,arg1,arg2){
+		alert('test'+arg1+arg2)
+	})
+	$('div').trigger('test',['aaa','bbb']);
+</script>
+</html>

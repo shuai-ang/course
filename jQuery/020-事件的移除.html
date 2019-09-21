@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-事件的移除.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div>box</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	$(function(){
+		function fn(){
+			alert('fnclick');
+		}
+		$('div').click(function(){
+			alert('aaa');
+		})
+		$('div').on('click',fn);
+		$('div').on('mouseover',function(){
+			alert('bbb');
+		})
+		$('div').one('mouseout',function(){
+			alert('ccc');
+		})
+		//$('div').off();
+		//$('div').off('click');
+		$('div').off('click',fn);
+	})
+</script>
+</html>

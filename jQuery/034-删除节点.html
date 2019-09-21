@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-删除节点.html</title>
+</head>
+<body>
+	<div>
+		hello
+		<p>我是p标签</p>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').on('click',function(){
+			alert('aaa');
+		})
+		/*var dom = $('div').remove();
+		dom.appendTo('body');
+		$('div').empty();*/
+		var dom = $('div').detach();
+		dom.appendTo('body');
+		//console.log(dom);
+	})
+</script>
+</html>

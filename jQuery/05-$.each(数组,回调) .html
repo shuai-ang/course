@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05-$.each(数组,回调).html</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	/*
+	var arr = [1,2,3,5,7,9];
+	arr.forEach(function(value,index){
+		console.log(value,index);
+	})
+	var res = $.each(arr,function(index,value){
+		console.log(index,value)
+	})
+	console.log(res)
+	*/
+	var likeArr = {0:"aaa",1:"bbb",2:"ccc",length:3};
+	/*
+	console.log(likeArr)
+	likeArr.forEach(function(){
+	})
+	*/
+	$.each(likeArr,function(index,value){
+		console.log('2:::',index,value)
+	})
+	var aDiv = document.getElementsByTagName('div');
+	// console.log(aDiv)
+	/*
+	aDiv.forEach(function(){
+	})
+	*/
+	var res = $.each(aDiv,function(index,value){
+		console.log('3:::',index,value)
+	})
+	console.log(res)
+</script>
+</html>

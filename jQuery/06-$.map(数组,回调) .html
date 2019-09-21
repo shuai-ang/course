@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06-$.map(数组,回调).html</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	var arr = [1,2,3,5,7,9];
+	/*
+	var res = arr.map(function(value,index){
+		console.log(value,index);
+		return value*10;
+	})
+	
+	var res = $.map(arr,function(value,index){
+		console.log(value,index);
+		return value*10;
+	})
+	*/
+	//console.log(res)
+	/*
+	var likeArr = {0:"aaa",1:"bbb",2:"ccc",length:3};
+	
+	//var res = likeArr.map();
+	
+	var res = $.each(likeArr,function(value,index){
+		console.log('2:::',value,index);
+		return value*10;
+	})*/
+	var aDiv = document.getElementsByTagName('div');
+	// console.log(aDiv)
+	//var res = aDiv.map();
+	var res = $.map(aDiv,function(value,index){
+		console.log('3:::',value,index);
+		return value*10;
+	})
+	console.log(res)
+</script>
+</html>

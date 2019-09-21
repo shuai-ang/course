@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07-jQuery的常见静态方法.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	/*
+	var str = '   ab  cd   ';
+	console.log(str);
+	console.log($.trim(str));
+	console.log($.isWindow(window));
+	*/
+	/*
+	console.log($.isArray([1,3,5,7]));
+	console.log($.isArray());
+	function show(){
+
+	}
+	console.log($.isFunction(show));
+	var obj1 = {
+		name:'tom',
+		age:18
+	}
+	var obj2 = {
+		name:'mery',
+		sex:'female'
+	}
+	//var res = $.extend(obj1,obj2);
+	var res = $.extend({},obj1,obj2);
+	console.log(obj1);
+	console.log(res);
+	*/
+	function show(){
+		console.log(this);
+	}
+	show();
+	$.proxy(show,{name:'tom'})()
+</script>
+</html>

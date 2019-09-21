@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04-jQuery对象和DOM对象转换.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">按钮</button>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+	<div>10</div>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+	/*
+	$('#btn').click(function(){
+		$('div').css("color","red")
+	})
+	*/
+	/*
+	var aDiv = document.getElementsByTagName('div');
+	$(aDiv).css({color:"red"});
+	console.log(aDiv);
+	console.log($(aDiv));
+	*/
+	//jQuery对象->DOM对象
+	console.log($('div')[0]);
+	console.log($('div').get(3));
+</script>
+</html>
