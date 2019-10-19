@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-决定项目的水平对齐方式.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			display: flex;
+			width: 600px;
+			margin: 50px auto;
+			border: 1px solid #000;
+			/*justify-content:flex-start;*//*默认值，左对齐*/
+			/*justify-content: flex-end;*/
+			/*justify-content: center;*/
+			/*justify-content: space-between;*/
+			justify-content: space-around;
+		}
+		.father div{
+			height: 50px;
+		}
+		.son1{
+			width: 50px;
+			background-color: red;
+		}
+		.son2{
+			width: 100px;
+			background-color: green;
+		}
+		.son3{
+			width: 200px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div>
+		<div class="son2"></div>
+		<div class="son3"></div>
+	</div>
+</body>
+</html>

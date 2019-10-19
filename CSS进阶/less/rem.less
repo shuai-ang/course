@@ -1,0 +1,30 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@fs:37.5;
+.setAttr(@attr,@px1){
+	@{attr}:unit(@px1 / @fs,rem);
+}
+.setAttr(@attr,@px1,@px2){
+	@{attr}:unit(@px1 / @fs,rem) unit(@px2 / @fs,rem);
+}
+.setAttr(@attr,@px1,@px2,@px3){
+	@{attr}:unit(@px1 / @fs,rem) unit(@px2 / @fs,rem) unit(@px3 / @fs,rem);
+}
+.setAttr(@attr,@px1,@px2,@px3,@px4){
+	@{attr}:unit(@px1 / @fs,rem) unit(@px2 / @fs,rem) unit(@px3 / @fs,rem) unit(@px4 / @fs,rem);
+}
+img{
+	//width: 5rem;
+	.setAttr(width,150);
+	.setAttr(margin,10);
+	.setAttr(margin,10,20);
+	.setAttr(margin,10,20,30);
+	.setAttr(margin,10,20,30,40);
+	float: left;
+}
+p{
+	//font-size: 0.64rem;
+	.setAttr(font-size,24);
+}

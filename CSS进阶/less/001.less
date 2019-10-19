@@ -1,0 +1,107 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	background-color:#ccc;
+}
+//变量
+@w:100px;
+@h:100px;
+@c:red;
+.box1{
+	width: @w;
+	height: @h;
+	background-color: @c;
+}
+.box2{
+	.box1;
+	margin-top: 10px;
+}
+.border-r(@d){
+	-o-border-radius:@d;
+	-webkit-border-radius:@d;
+	-ms-border-radius:@d;
+	-moz-border-radius:@d;
+	border-radius: @d;
+}
+.border-r-def(@d:20px){
+	-o-border-radius:@d;
+	-webkit-border-radius:@d;
+	-ms-border-radius:@d;
+	-moz-border-radius:@d;
+	border-radius: @d;
+}
+.box3{
+	width: 100px;
+	height: 100px;
+	border: 50px solid #000;
+	background-color: green;
+	//.border-r(40px);
+	.border-r-def();
+}
+
+.trangle(@_,@w,@c){
+	width: 0;
+	height: 0;
+	border-style: solid;
+}
+.trangle(left,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent transparent @c;
+}
+.trangle(top,@w,@c){
+	border-width: @w;
+	border-color: @c transparent transparent transparent;
+}
+.trangle(right,@w,@c){
+	border-width: @w;
+	border-color: transparent @c transparent transparent;
+}
+.trangle(bottom,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent @c transparent;
+}
+.box4{
+	.trangle(top,50px,black);
+}
+
+ul{
+	width: 600px;
+	margin:50px auto;
+	list-style: none;
+	border:1px dashed green;
+	li{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		margin-bottom: 5px;
+		a{
+			font-size: 32px;
+			text-decoration: none;
+		}
+		&:hover{
+			background-color: green;
+		}
+	}
+}
+//运算
+.calc-fs(@fs){
+	font-size: @fs+10px;
+}
+.box5{
+	//font-size: 20px;
+	//.calc-fs(20px);
+	font-size: calc(20px + 10);
+}
+//避免编译
+.box6{
+	.box3 !important;
+	font-size: ~'calc(20px + 10)';
+}
+.setAttr(@attr,@val){
+	@{attr} : unit(@val/10,px);
+}
+.box7{
+	.setAttr(font-size,300px);
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-排列方向.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			display: flex;
+			width: 350px;
+			margin: 50px auto;
+			border: 1px solid #000;
+			/*flex-direction:row;*/
+			/*flex-direction: row-reverse;*/
+			/*flex-direction: column;*/
+			flex-direction: column-reverse;
+		}
+		.father div{
+			height: 50px;
+		}
+		.son1{
+			width: 50px;
+			background-color: red;
+		}
+		.son2{
+			width: 100px;
+			background-color: green;
+		}
+		.son3{
+			width: 200px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div>
+		<div class="son2"></div>
+		<div class="son3"></div>
+	</div>
+</body>
+</html>
