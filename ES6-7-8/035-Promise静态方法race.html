@@ -8,10 +8,30 @@
 	
 </body>
 <script>
-	function getPromise(){
-		return Promise.resolve(()=>{
-			
+	function getTimerData(delay){
+		return new Promise((resolve,reject)=>{
+			setTimeout(function() {
+				resolve('get timer ' + delay + ' success');
+			},delay);
 		})
 	}
+	const t1 = getTimerData(200);
+	const t2 = getTimerData(500);
+	const t3 = getTimerData(1000);
+	const t4 = new Promise((resolve,reject)=>{
+			setTimeout(function() {
+				reject('get timer ' + 100 + ' err');
+			},100);
+		})
+	const promises = Promise.race([t1,t2,t3,t4]);
+	promises
+	.then(data =>{
+		console.log(data)
+		console.log(promises)
+	})
+	.catch(err =>{
+		console.log(err)
+		console.log(promises)
+	})
 </script>
 </html>

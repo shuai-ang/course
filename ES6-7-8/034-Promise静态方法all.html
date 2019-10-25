@@ -9,13 +9,13 @@
 </body>
 <script>
 	function getImgPromise(url){
-		return new Promise((resove,reject) =>{
+		return new Promise((resolve,reject) =>{
 			var img = new Image();
 			img.onload = function(){
-				resove('load img success')
+				resolve('load '+url+' success')
 			}
-			img.onerr = function(){
-				reject('load img err')
+			img.onerror = function(){
+				reject('load '+url+' err')
 			}
 
 			img.src = url;
@@ -34,9 +34,18 @@
 		console.log(data)
 	})
 	*/
-	const imgs = getImgPromise(['images/carousel1.jpg','images/carousel2.jpg','images/carousel3.jpg'].map((data)=>{
-			
-	}))
+	const imgs = ['images/carousel1s.jpg','images/carousel2.jpg','images/carousel3.jpg'].map((src)=>{
+			return getImgPromise(src);
+	})
 	const promises = Promise.all(imgs);
+	promises
+	.then(data =>{
+		console.log(data)
+		console.log(promises)
+	})
+	.catch(err =>{
+		console.log(err)
+		console.log(promises)
+	})
 </script>
 </html>
