@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-Promise的catch和finally方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let promise = new Promise((resolve,reject) =>{
+		// console.log('aaa')
+		setTimeout(function(){
+			resolve('load data ok')
+			// reject('load data err')
+		},100)
+	})
+	console.log('before',promise)
+	promise
+	.then(data =>{
+		console.log('after ::',promise)
+		console.log(data)
+	})
+	.catch(err =>{
+		console.log('after ::',promise)
+		console.log(err)
+	})
+	.finally(() =>{
+		console.log('finally .')
+	})
+</script>
+</html>

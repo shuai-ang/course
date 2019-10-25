@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-对象的深拷贝.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj = {
+		name : "tom",
+		age : 18,
+		friends : {name : "leo",age : 20},
+		pets : ["cat","dog"]
+	}
+	function getDataType(data){
+		if(data instanceof Array){
+			return 'array';
+		}else if(data instanceof Object){
+			return 'object';
+		}else{
+			return data;
+		}
+	}
+	function deepCopy(data){
+		let type = getDataType(data);
+		let result;
+		if(type == 'array'){
+			result = []
+		}else if(type == 'object'){
+			result = {}
+		}else{
+			return data
+		}
+		for(let key in data){
+			if(getDataType(data[key]) == 'array' || getDataType(data[key]) == 'object'){
+				result[key] = deepCopy(data[key]);
+			}else{
+				result[key] = data[key];
+			}
+		}
+		return result;
+	}
+	const obj1 = deepCopy(obj);
+	obj1.name = "amy";
+	obj1.friends.name = "jack";
+	obj1.pets.push("pig");
+	console.log('obj',obj)//name : "tom",friends.name : "jack",pets : true
+	console.log('obj1',obj1)//name : "amy",friends.name : "jack",pets : true
+</script>
+</html>

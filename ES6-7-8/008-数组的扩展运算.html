@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-数组的扩展运算.html</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+	/*
+	let arr = [111,222,333];
+	function add(n1,n2,n3){
+		console.log(n1+n2+n3)
+	}
+	add(...arr);
+	*/
+	/*
+	function add(...arr){
+		console.log(arr)
+		let result = 0;
+		for (let i = 0;i<arr.length;i++){
+			result += arr[i];
+		}
+		return result;
+	}
+	console.log(add(1,2,3,5,9,23))
+	*/
+	/*
+	//求数组的最大数
+	let arr = [3,5,16,24,78];
+	console.log(Math.max.apply(null,arr))//ES5
+	console.log(Math.max(...arr))
+	*/
+	/*
+	//浅拷贝数组
+	let arr1 = [3,5,16,24,78];
+	let arr2 = arr1;
+	arr2.push(35);
+	console.log('arr1',arr1)
+	console.log('arr2',arr2)
+	*/
+	//深拷贝数组
+	/*
+	let arr1 = [3,5,16,24,78];
+	let arr2 = [];
+	for(let i = 0;i<arr1.length;i++){
+		arr2.push(arr1[i])
+	}
+	console.log(arr2)
+	arr2.push(35);
+	console.log('arr1',arr1)
+	console.log('arr2',arr2)
+	
+	let arr1 = [3,5,16,24,78];//ES5
+	let arr2 = arr1.concat();
+	arr2.push(35);
+	console.log('arr1',arr1)
+	console.log('arr2',arr2)
+	
+	let arr1 = [3,5,16,24,78];//ES5
+	let arr2 = arr1.slice();
+	arr2.push(35);
+	console.log('arr1',arr1)
+	console.log('arr2',arr2)
+	
+	let arr1 = [3,5,16,24,78];//ES6
+	let arr2 = [...arr1];
+	arr2.push(66);
+	console.log('arr1',arr1)
+	console.log('arr2',arr2)
+	*/
+	let aLi = document.getElementsByTagName('li');
+	let arr = [...aLi];
+	console.log(arr)
+</script>
+</html>

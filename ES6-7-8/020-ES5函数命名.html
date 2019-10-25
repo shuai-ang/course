@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-ES5函数命名.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	show();//leo
+	var show = function(){
+		console.log('tom')
+	}
+	function show(){
+		console.log('leo')
+	}
+	/*
+	var show = function(){
+		console.log('tom')
+	}
+	function show(){
+		console.log('leo')
+	}
+	show();//tom
+	*/
+	/*
+	function show(){
+		console.log('leo')
+	}
+	var show = function(){
+		console.log('tom')
+	}
+	show();//tom
+	*/
+</script>
+</html>

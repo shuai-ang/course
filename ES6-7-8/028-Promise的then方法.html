@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-Promise的then方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//Promise调用then方法后返回一个新的Promise对象
+	//新的Promise对象的then方法中参数的数据是上一个promise对象调用then方法时返回的数据
+	let promise = new Promise((resolve,reject) =>{
+		setTimeout(function(){
+			resolve('load data ok')
+			// reject('load data err')
+		},100)
+	})
+	/*
+	const p1 = promise
+	.then(data =>{
+		// console.log(data)
+		return 'ok data'
+	},err =>{
+		console.log(err)
+	})
+	// console.log(promise)
+	// console.log(p1)
+	// console.log(p1 == promise)
+	p1
+	.then(data =>{
+		console.log(data)
+	})
+	*/
+	let p2;
+	const p1 = promise
+	.then(data =>{
+		p2 = new Promise((resolve,reject) =>{
+			setTimeout(function(){
+				resolve('new promise ok')
+				// reject('load data err')
+			},100)
+		})
+		return p2;
+	})
+	p1
+	.then(data =>{
+		console.log(p1)
+		console.log(p2)
+		console.log(p1 == p2)
+		console.log(data)
+	})
+</script>
+</html>

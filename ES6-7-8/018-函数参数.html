@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-函数参数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function show(x,y="world"){
+		console.log(x,y)
+	}
+	show("hello")
+	*/
+	/*
+	let x = 1;
+	function show1(i = x+1){
+		console.log(i)
+	}
+	show1()//2
+	x = 2;
+	show1()//3
+	
+	function ajax(url,{method = 'GET',data = 'id:001'} = {}){
+		console.log(url,method,data)
+	}
+	ajax('http://api.kuazhu.com',{method:'POST',data:'id:002'})
+	*/
+	//rest参数
+	function add(...arr){
+		console.log(arr)
+	}
+	add(11,22,33,44)
+</script>
+</html>

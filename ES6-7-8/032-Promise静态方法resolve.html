@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>032-Promise静态方法resolve.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	const p = Promise.resolve();
+	console.log(p)
+	const p1 = new Promise((resolve,reject) =>{
+		setTimeout(function(){
+			resolve('load data ok')
+			// reject('load data err')
+		},100)
+	})
+	const p2 = Promise.resolve(p1);
+	console.log(p1)
+	console.log(p2)
+	console.log(p1 == p2)
+	*/
+	/*
+	const obj = {
+		then:()=>{
+			console.log('aaa')
+		}
+	}
+	const p3 = Promise.resolve(obj);
+	console.log(p3)
+	*/
+	console.log(Promise.resolve({name: "tom"}))
+	console.log(Promise.resolve('bbb'))
+	console.log(Promise.resolve([1,2,3,4]))
+</script>
+</html>

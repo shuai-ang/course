@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-箭头函数中的this.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var id = 22;
+	/*
+	function Timer(id){
+		this.id = id;
+		setTimeout(function(){
+			console.log(this);//window
+			console.log(this.id);//22
+		},100)
+	}
+	*/
+	function Timer(id){
+		this.id = id;
+		setTimeout(() => {
+			console.log(this);//Timer{id:11}
+			console.log(this.id);//11
+		},100)
+	}
+	let t = new Timer(11);
+</script>
+</html>

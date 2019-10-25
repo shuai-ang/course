@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-对象的扩展运算.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj = {
+		name : "tom",
+		age : 18,
+		friends : {name : "leo",age : 20},
+		pets : ["cat","dog"]
+	}
+	/*
+	//直接赋值
+	const obj1 = obj;
+	obj1.name = "amy";
+	obj1.friends.name = "jack";
+	obj1.pets.push("pig");
+	console.log(obj)//name : "amy",friends.name : "jack",pets : true
+	console.log(obj1)//name : "amy",friends.name : "jack",pets : true
+	*/
+	//对象的扩展运算
+	const obj1 = {...obj};
+	obj1.name = "amy";
+	obj1.friends.name = "jack";
+	obj1.pets.push("pig");
+	console.log('obj',obj)//name : "tom",friends.name : "jack",pets : true
+	console.log('obj1',obj1)//name : "amy",friends.name : "jack",pets : true
+</script>
+</html>

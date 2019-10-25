@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-Promise静态方法all.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function getImgPromise(url){
+		return new Promise((resove,reject) =>{
+			var img = new Image();
+			img.onload = function(){
+				resove('load img success')
+			}
+			img.onerr = function(){
+				reject('load img err')
+			}
+
+			img.src = url;
+		})
+	}
+	/*
+	const p1 = Promise.resolve('ok');
+	const p2 = Promise.resolve('ok');
+	const p3 = Promise.resolve('ok');
+	const p4 = Promise.resolve('ok');
+	const promises = Promise.all([p1,p2,p3,p4])
+	// console.log(promises)
+	promises
+	.then(data =>{
+		console.log(promises)
+		console.log(data)
+	})
+	*/
+	const imgs = getImgPromise(['images/carousel1.jpg','images/carousel2.jpg','images/carousel3.jpg'].map((data)=>{
+			
+	}))
+	const promises = Promise.all(imgs);
+</script>
+</html>

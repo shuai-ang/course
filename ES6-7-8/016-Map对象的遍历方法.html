@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-Map对象的遍历方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj1 = {age : "18"};
+	let obj2 = {say : "hello"};
+	let obj = new Map();
+	obj.set(name,"leo");
+	obj.set(obj1,"18");
+	obj.set(obj2,"hello");
+	// console.log(obj)
+	// console.log(obj.keys())
+	// console.log(obj.values())
+	for(let values of obj.values()){
+		console.log('values',values)
+	}
+	for(let entries of obj.entries()){
+		console.log('entries',entries)
+	}
+	obj.forEach(function(value,key){
+		console.log(value,key)
+	})
+</script>
+</html>
