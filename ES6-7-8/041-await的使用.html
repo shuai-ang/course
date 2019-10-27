@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-await的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	async function fn(){
+		const data1 = await 'get data1';
+
+		console.log('data1 ::',data1)
+
+		return data1;
+	}
+	const p = fn();
+	p.then(data =>{
+		console.log(data)
+	})
+	*/
+	/*
+	function fn(){
+		const data1 = await 'get data1';
+
+		console.log('data1 ::',data1)
+
+		return data1;
+	}
+	const p = fn();
+	*/
+	const promise = new Promise((resolve,reject) =>{
+		setTimeout(function(){
+			// resolve('get data ok');
+			reject('get data err')
+		},100)
+		
+	})
+	async function fn(){
+		try{
+			const data1 = await promise;
+
+			console.log('data1 ::',data1)
+
+			console.log('data2 ::')
+		}
+		catch(err){
+				console.log(err)
+			}
+
+		return 'ok';
+	}
+	const p = fn();
+	p.then(data =>{
+		console.log(data)
+	})
+</script>
+</html>

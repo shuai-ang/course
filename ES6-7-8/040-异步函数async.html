@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-异步函数async.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let p1 = null;
+	async function as(){
+		// return 'data ok'
+		p1 = new Promise((resolve,reject)=>{
+			resolve('data ok')
+		})
+		return p1;
+	}
+	// console.log(as())
+	const g = as();
+	console.log(g)
+	console.log(p1)
+	console.log(g == p1)
+	g
+	.then(data =>{
+		console.log(data)
+	})
+</script>
+</html>

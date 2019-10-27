@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>042-await的顺序.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	function getDataPromise(url){
+		return new Promise((resolve,reject) =>{
+			$.ajax({
+				url:url,
+				success:(data)=>{
+					resolve(data)
+				},
+				error:(jqXHR,statusMSG)=>{
+					reject(statusMSG)
+				}
+			})
+		})
+	}
+	async function fn(url){
+		const userName = await getDataPromise(url)
+		// console.log(userName)
+		const userNo = await getDataPromise('data/' + userName.orderNo + '.json')
+		return userNo;
+	}
+	// console.log(fn('data/a.json'))
+	const g = fn('data/a.json');
+	g.then(data =>{
+		console.log(data)
+	})
+</script>
+</html>

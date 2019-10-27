@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>048-数组.html</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+<script>
+	const doms = document.getElementsByTagName('div');
+	console.log([...doms])
+	const arr = Array.from(doms)
+	console.log(arr)
+	const arr1 = [11,33,55,74,98];
+	console.log(arr1.find(n=>n>100))
+	console.log(arr1.findIndex(n=>n>50))
+	console.log(arr1.includes(55,0))
+</script>
+</html>

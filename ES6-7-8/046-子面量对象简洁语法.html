@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-子面量对象简洁语法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const username = "tom";
+	const age = 18;
+	/*
+	const obj = {
+		username : username,
+		age : age
+	}
+	*/
+	const obj = {
+		username,
+		age,
+		sayHello(){
+			console.log('hello')
+		}
+	}
+
+
+	console.log(obj)
+</script>
+</html>

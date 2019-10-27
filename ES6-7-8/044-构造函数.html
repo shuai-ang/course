@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044-构造函数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log('I am ' + this.name)
+	}
+	Person.prototype.sayAge = function(){
+		console.log('I am ' + this.age + ' years old')
+	}
+	Person.sayHello = function(){
+		console.log('hello everybody')
+	}
+	/*
+	let p1 = new Person("tom",18);
+	p1.sayHello = Person.sayHello;
+	console.log(p1)
+	p1.sayName()
+	p1.sayHello()
+	*/
+	Student.prototype = Object.create(Person.prototype);
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major = major;
+	}
+	Student.prototype.sayMajor = function(){
+		console.log('I am from ' + this.major)
+	}
+	let p2 = new Student("leo",20,"computer")
+	p2.sayName();
+	p2.sayAge();
+	p2.sayMajor();
+</script>
+</html>
