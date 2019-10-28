@@ -8,17 +8,42 @@
 	
 </body>
 <script>
-	class Person(name,age)(
-		constructor(
+	class Person{
+		constructor(name,age){
 			this.name = name
 			this.age = age
-			)
-		static sayHello(function(){
+		}
+		sayName(){
+			console.log('I am ' + this.name)
+		}
+		sayAge(){
+			console.log('I am ' + this.age + ' years old')
+		}
+		static sayHello(){
 			console.log('hello everybody')
-		})
-	)
-	let p1 = new Person('tom',18)
-	p1.sayHello();
-	class Student extends Person
+		}
+	}
+	// let p1 = new Person('tom',18)
+	// p1.sayHello = Person.sayHello;
+	// p1.sayName();
+	// p1.sayAge();
+	// p1.sayHello();
+
+
+	class Student extends Person{
+		constructor(name,age,major){
+			super(name,age)
+			this.major = major
+		}
+		sayMajor(){
+			console.log('I am from ' + this.major)
+		}
+	}
+	const s1 = new Student('leo',20,'computer');
+	console.log('s1 ::',s1)
+	s1.sayName();
+	s1.sayAge();
+	s1.sayMajor();
+	Student.sayHello()
 </script>
 </html>

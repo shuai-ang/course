@@ -22,16 +22,32 @@
 			})
 		})
 	}
-	async function fn(url){
-		const userName = await getDataPromise(url)
-		// console.log(userName)
-		const userNo = await getDataPromise('data/' + userName.orderNo + '.json')
-		return userNo;
+	async function fn(username){
+		const userNo = await getDataPromise('data/' + username + '.json')
+		// console.log(userNo)
+		const userData = await getDataPromise('data/' + userNo.orderNo + '.json')
+		return userData;
 	}
-	// console.log(fn('data/a.json'))
-	const g = fn('data/a.json');
-	g.then(data =>{
+
+	async function getUsers(){
+		const getA = getDataPromise('data/a.json');
+		const getB = getDataPromise('data/b.json');
+		const userA = await getA;
+		const userB = await getB;
+		return [userA,userB]
+	}
+	getUsers()
+	.then(data =>{
 		console.log(data)
 	})
+
+
+
+	/*
+	// console.log(fn('data/a.json'))
+	const g = fn('a');
+	g.then(data =>{
+		console.log(data)
+	})*/
 </script>
 </html>

@@ -21,13 +21,14 @@
 	Person.sayHello = function(){
 		console.log('hello everybody')
 	}
-	/*
+	
 	let p1 = new Person("tom",18);
-	p1.sayHello = Person.sayHello;
-	console.log(p1)
-	p1.sayName()
-	p1.sayHello()
-	*/
+	// p1.sayHello = Person.sayHello;
+	// console.log(p1)
+	// p1.sayName()
+	// p1.sayHello()
+	// p1.sayMajor()
+	
 	Student.prototype = Object.create(Person.prototype);
 	function Student(name,age,major){
 		Person.call(this,name,age);
@@ -36,9 +37,11 @@
 	Student.prototype.sayMajor = function(){
 		console.log('I am from ' + this.major)
 	}
+	Student.sayHello = Person.sayHello;
 	let p2 = new Student("leo",20,"computer")
 	p2.sayName();
 	p2.sayAge();
 	p2.sayMajor();
+	Student.sayHello()
 </script>
 </html>

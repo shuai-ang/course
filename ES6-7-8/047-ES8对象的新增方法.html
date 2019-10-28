@@ -10,7 +10,11 @@
 <script>
 	const {
 		keys,
-		entries
+		entries,
+		values,
+		getOwnPropertyDescriptors,
+		assign,
+		is
 	}
 	= Object;
 	const obj = {
@@ -18,7 +22,28 @@
 		age : 18,
 		sex : "male"
 	}
-	const {keys} = Object;
-	console.log(keys())
+	Object.defineProperty(obj,'legs',{
+		value:2,
+		enumerable:true
+	})
+	//console.log(obj)
+	// console.log(keys(obj))
+	// console.log(entries(obj))
+	// console.log(values(obj))
+	// console.log(getOwnPropertyDescriptors(obj))
+	const DEFAULTS = {
+		js:true,
+		timer:500
+	}
+	const options = {
+		js:false
+	}
+	//console.log(assign({},DEFAULTS,options))
+	//console.log(assign([22,34,45,56],[78,86,35]))//[78, 86, 35, 56]
+	console.log(is(1,'1'))
+	console.log(+0 === -0)//true
+	console.log(is(+0,-0))//false
+	console.log(NaN === NaN)//false
+	console.log(is(NaN,NaN))//true
 </script>
 </html>
