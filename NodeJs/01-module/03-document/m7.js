@@ -3,7 +3,7 @@ console.log(exports)
 console.log(module.exports)
 console.log(module.exports == exports)
 */
-console.log('require m5')
+console.log('require m7')
 const str = '123';
 const fn = function(){
 	console.log('fn ..')
