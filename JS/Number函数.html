@@ -4,18 +4,21 @@
 	<meta charset="UTF-8">
 	<title>Number函数.html</title>
 	<script>
-		// var a = '123';
-		// var a = '123a45';
-		// var a = "";
-		// var a = '     ';
-		// var a =true;
-		// var a =false;
-		// var a =null;
-		var a = undefined;
+		// var a = '123';//123  123
+		// var a = '   123a45';//12345  NaN
+		var a = "";//NaN  0
+		// var a = '     ';//NaN  0
+		// var a =true;//NaN  1
+		// var a =false;//NaN  0
+		// var a =null;//NaN  0
+		// var a = undefined;//NaN  NaN
 		console.log(parseFloat(a));
-		console.log(typeof parseFloat(a));
+		console.log(typeof parseFloat(a));//返回的数据类型都是number
 		console.log(Number(a));
-		console.log(typeof Number(a));
+		console.log(typeof Number(a));//返回的数据类型都是number
+
+		console.log(isNaN(parseFloat(a)));
+		console.log(isNaN(Number(a)));
 	</script>
 </head>
 <body>
