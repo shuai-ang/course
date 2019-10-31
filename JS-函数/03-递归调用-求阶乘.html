@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03-递归调用-求阶乘.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fact(n){
+		// console.log(arguments)
+		if(n == 1){
+			return 1;
+		}else{
+			// return n * fact(n-1)
+			return n * arguments.callee(n-1)
+		}
+	}
+	console.log(fact(5))
+</script>
+</html>

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>函数的定义.html</title>
 	<script>
+		/*
 		Sayhi();
 		function Sayhi(){
 			alert('hi');
@@ -13,6 +14,19 @@
 			alert('hello');
 		}
 		Sayhello();
+		*/
+		var a = 3;
+		function show1(){
+			console.log(a)
+		}
+		a++;
+		var show2 = function(){
+			var a = 2;
+			console.log(a)
+			
+			show1()
+		}
+		show2()
 	</script>
 </head>
 <body>
