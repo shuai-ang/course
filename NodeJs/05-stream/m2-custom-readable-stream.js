@@ -1,22 +1,37 @@
 const { Readable } = require('stream');
-
+/*
+const reader = new Readable();
+reader.on('data',(chunk)=>{
+	console.log(chunk)    //The _read() method is not implemented
+})
+*/
 class CustomStream extends Readable{
-	constructor(opt){
-		super(opt);
-		this._max = 1000000;
-		this._index = 1;
+	constructor(){
+		super()
+		this.index = 0;
 	}
-	_read() {
-	    const i = this._index++;
-	    if (i > this._max)
-	      this.push(null);
-	    else {
-	      const str = String(i);
-	      const buf = Buffer.from(str, 'ascii');
-	      this.push(buf);
-	    }
-  }
+	_read(){
+		this.index ++;
+		if(this.index <5){
+			this.push(this.index +'')
+		}else{
+			this.push(null)
+		}
+	}
 }
 
 const read = new CustomStream();
-read.on
+/*
+//获取数据流程
+//1.保存数据
+let body = '';
+//2.获取数据
+read.on('data',(chunk)=>{
+	body += chunk;
+})
+//3.获取数据完毕监听end事件
+read.on('end',()=>{
+	console.log(body)
+})
+*/
+read.pipe(process.stdout)
