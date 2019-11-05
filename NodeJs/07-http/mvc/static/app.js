@@ -12,6 +12,35 @@ const server = http.createServer((req,res)=>{
 	const parse = url.parse(req.url,true);//parse是一个URL对象，里面有pathname属性
 	
 	const pathname = parse.pathname;
+
+	if(pathname.startsWith == '/static/'){
+		const filename = path.normalize(__dirname +filepath);
+
+		fs.readFile(filename,{encoding:'utf-8'},(err,data)=>{
+			if(err){
+				res.setHeader('Content-Type','text/html;charset="utf-8"')
+				res.statusCode = 404
+				res.end('<h1>请求的地址出错啦</h1>')
+			}else{
+				// console.log(data)
+				//根据请求的文件决定不同的文档类型
+				// console.log(req.url)
+				const extname = path.extname(req.url);
+				const mimeType = mime[extname];
+				res.setHeader('Content-Type',mimeType +';charset="utf-8"')
+				res.end(data)
+			}
+		})
+	}else{
+		// console.log(pathname)
+		const paths = pathname.split('/');
+		const controller = paths[1] || 'Index';
+		const action = paths[2] || 'index';
+		const args = paths.splice(3);
+		console.log(args)
+		res.end('doing')
+	}
+	/*
 	if(pathname == '/' || pathname == '/index.html'){
 		get()
 		.then(data=>{
@@ -93,7 +122,7 @@ const server = http.createServer((req,res)=>{
 			}
 		})
 	}
-
+	*/
 	// console.log(filepath)
 
 	
