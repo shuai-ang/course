@@ -8,17 +8,17 @@ const swig = require('swig');
 const querystring = require('querystring');
 
 const server = http.createServer((req,res)=>{
-	const filepath = req.url;
-	const parse = url.parse(req.url,true);//parse是一个URL对象，里面有pathname属性
 	
+	const parse = url.parse(req.url,true);//parse是一个URL对象，里面有pathname属性
+	const filepath = req.url;
 	const pathname = parse.pathname;
-
-	if(pathname.startsWith == '/static/'){
-		const filename = path.normalize(__dirname +filepath);
+	
+	if(pathname.startsWith('/static/')){
+		const filename = path.normalize(__dirname+'/'+filepath);
 
 		fs.readFile(filename,{encoding:'utf-8'},(err,data)=>{
 			if(err){
-				res.setHeader('Content-Type','text/html;charset="utf-8"')
+				res.setHeader('Content-type','text/html;charset="utf-8"')
 				res.statusCode = 404
 				res.end('<h1>请求的地址出错啦</h1>')
 			}else{
@@ -27,18 +27,30 @@ const server = http.createServer((req,res)=>{
 				// console.log(req.url)
 				const extname = path.extname(req.url);
 				const mimeType = mime[extname];
-				res.setHeader('Content-Type',mimeType +';charset="utf-8"')
+				res.setHeader('Content-type',mimeType +';charset="utf-8"')
 				res.end(data)
 			}
 		})
+	}else if(pathname == '/favicon.ico'){
+		res.end('ok')
 	}else{
 		// console.log(pathname)
 		const paths = pathname.split('/');
+
 		const controller = paths[1] || 'Index';
 		const action = paths[2] || 'index';
 		const args = paths.splice(3);
-		console.log(args)
-		res.end('doing')
+		// console.log(args)
+		const mode = require(path.normalize(__dirname +'/Controller/'+controller));
+		try{
+			mode[action] && mode[action](...[req,res].concat(args))
+		}
+		catch(err){
+			res.setHeader('Content-type','text/html;charset="utf-8"')
+			res.statusCode = 404
+			res.end('<h1>请求的地址出错啦</h1>')
+		}
+		
 	}
 	/*
 	if(pathname == '/' || pathname == '/index.html'){

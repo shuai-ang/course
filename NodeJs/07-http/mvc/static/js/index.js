@@ -3,7 +3,7 @@
 	$input.on('keydown',function(ev){
 		if(ev.keyCode == 13){
 			$.ajax({
-				url:'/add',
+				url:'/Item/add',
 				type:'post',
 				dataType:'json',
 				data:{
@@ -29,11 +29,8 @@
 	$('.list').on('click','.item',function(){
 		var $this = $(this);
 		$.ajax({
-			url:"/del",
+			url:"/Item/del/"+$this.data('id'),
 			dataType:'json',
-			data:{
-				id:$this.data('id')
-			},
 			success:function(data){
 				if(data.code == 0){
 					$this.remove()
