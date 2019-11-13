@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{title}}</title>
+</head>
+<body>
+	<h1>hello,I am {{name}}</h1>
+	<p>
+		{% if name == 'Rain' %}
+		我是Rain
+		{% else %}
+		我是Sera
+		{% endif %}
+	</p>
+	<p>
+		{% if name == 'Rain' %}
+		我是Rain
+		{% elseif age == 18 %}
+		我18岁了
+		{% else %}
+		我是Sera
+		{% endif %}
+	</p>
+	<ul>
+		{% for key,val in friends %}
+			<li>{{key}}--{{val}}</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>
