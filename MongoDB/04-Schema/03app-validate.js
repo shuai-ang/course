@@ -22,9 +22,9 @@ db.once('open', function() {
 	
 	UserModel.insertMany({
 		name:"Rain",
-		age:66,
+		age:50,
 		major:"Dance",
-		phone:13456789056
+		phone:15456789056
 		})
 	.then(data=>{
 		console.log(data)

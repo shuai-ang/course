@@ -21,7 +21,13 @@ const mongoose = require('mongoose');
 	  	type:Boolean
 	  },
 	  phone:{
-	  	type:Number
+	  	type:Number,
+	  	validate:{
+	  		validator:function(val){
+	  			return /1[35789]\d{9}/.test(val)
+	  		},
+	  		message:"手机号不符合要求"
+	  	}
 	  },
 	  createAt:{
 	  	type:Date,
@@ -31,6 +37,19 @@ const mongoose = require('mongoose');
 	  	type:Array
 	  }
 	});
+ //定义实例方法
+ UserSchema.methods.getBlogs = function(callback){
+ 	// console.log(this)
+ 	this.model('blog').find({author:this._id},callback)
+ }
+
+//定义静态方法
+UserSchema.statics.findByPhone = function(val,callback){
+	// console.log(val)
+	this.findOne({phone:val},callback)
+}
+
+
  //2.根据文档模型生成对应集合
  //2.1第一个参数就是需要生成的集合名称，mongoose会将集合名称转化为复数
  //2.2第二个参数就是前面定义的模型
