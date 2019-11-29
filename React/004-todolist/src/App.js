@@ -6,21 +6,37 @@ class App extends Component{
 		super(props);
 		//初始化
 		this.state = {
-			list:['吃饭','唱歌','跳舞','打豆豆']
+			list:['吃饭','唱歌','跳舞','打豆豆'],
+			task:''
 		}
 	}
-	handleClick(){
-		console.log('btn..')
-		console.log(this)
+	handleAdd(){
+		//console.log('btn..')
+		//console.log(this)
+		const list = [...this.state.list,this.state.task];
+		this.setState((preState)=>({
+			list:list,
+			task:''
+		}))
 	}
 	handleInput(ev){
-		console.log(ev.target.value)
+		const val = ev.target.value;
+		this.setState((preState)=>({
+			task:val
+		}))
+	}
+	handleDel(index){
+		const list = [...this.state.list];
+		list.splice(index,1)
+		this.setState((preState)=>({
+			list:list
+		}))
 	}
 	render(){
 		return (
 			<div className='App'>
-				<input style={{width:900}} onChange={this.handleInput.bind(this)}/>
-				<button className='btn' onClick={this.handleClick.bind(this)}>提交</button>
+				<input style={{width:900}} onChange={this.handleInput.bind(this)} value={this.state.task}/>
+				<button className='btn' onClick={this.handleAdd.bind(this)}>提交</button>
 				<ul className='list'>
 					{
 						/*
@@ -29,7 +45,9 @@ class App extends Component{
 						<li>打豆豆</li>
 						*/
 						this.state.list.map((item,index)=>{
-							return (<li key={index}>{item}</li>)
+							return (<li key={index} onClick={this.handleDel.bind(this,index)}>
+								{item}
+								</li>)
 						})
 					}
 				</ul>
