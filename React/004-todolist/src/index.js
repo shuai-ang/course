@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.js';
+import App from './App.js';//自定义组件必须以大写字母开头
 
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <App />,
   document.getElementById('root')
 );
