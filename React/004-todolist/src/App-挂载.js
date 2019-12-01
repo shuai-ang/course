@@ -15,22 +15,9 @@ class App extends Component{
 		this.handleAdd = this.handleAdd.bind(this)
 	}
 	static getDerivedStateFromProps(props, state){
-		return true;
+		console.log('App getDerivedStateFromProps',(props,state))
+		return {task:'aaa'};
 	}
-	shouldComponentUpdate(nextProps, nextState){
-		console.log('shouldComponentUpdate(nextProps, nextState)',(nextProps, nextState))
-		return true;
-	}
-
-	getSnapshotBeforeUpdate(prevProps, prevState){
-		console.log('getSnapshotBeforeUpdate(prevProps, prevState)',(prevProps, prevState))
-		return 111
-	}
-
-	componentDidUpdate(prevProps, prevState,snapshot){
-		console.log('componentDidUpdate(prevProps, prevState,snapshot)',(prevProps, prevState,snapshot))
-	}
-
 	handleAdd(){
 		//console.log('btn..')
 		//console.log(this)

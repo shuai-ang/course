@@ -4,7 +4,6 @@ import Item from './Item.js'
 
 class App extends Component{
 	constructor(props){
-		console.log('App constructor')
 		super(props);
 		//初始化
 		this.state = {
@@ -14,23 +13,6 @@ class App extends Component{
 		this.handleInput = this.handleInput.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
 	}
-	static getDerivedStateFromProps(props, state){
-		return true;
-	}
-	shouldComponentUpdate(nextProps, nextState){
-		console.log('shouldComponentUpdate(nextProps, nextState)',(nextProps, nextState))
-		return true;
-	}
-
-	getSnapshotBeforeUpdate(prevProps, prevState){
-		console.log('getSnapshotBeforeUpdate(prevProps, prevState)',(prevProps, prevState))
-		return 111
-	}
-
-	componentDidUpdate(prevProps, prevState,snapshot){
-		console.log('componentDidUpdate(prevProps, prevState,snapshot)',(prevProps, prevState,snapshot))
-	}
-
 	handleAdd(){
 		//console.log('btn..')
 		//console.log(this)
@@ -76,11 +58,8 @@ class App extends Component{
 						)
 				})
 	}
-	componentDidMount(){
-		console.log('App componentDidMount')
-	}
 	render(){
-		console.log('App render')
+		//console.log('App render')
 		return (
 			<div className='App'>
 				<input ref={(input)=>{this.input = input}} style={{width:900}} onChange={this.handleInput} value={this.state.task}/>

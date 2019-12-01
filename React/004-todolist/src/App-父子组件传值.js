@@ -4,7 +4,6 @@ import Item from './Item.js'
 
 class App extends Component{
 	constructor(props){
-		console.log('App constructor')
 		super(props);
 		//初始化
 		this.state = {
@@ -14,23 +13,6 @@ class App extends Component{
 		this.handleInput = this.handleInput.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
 	}
-	static getDerivedStateFromProps(props, state){
-		return true;
-	}
-	shouldComponentUpdate(nextProps, nextState){
-		console.log('shouldComponentUpdate(nextProps, nextState)',(nextProps, nextState))
-		return true;
-	}
-
-	getSnapshotBeforeUpdate(prevProps, prevState){
-		console.log('getSnapshotBeforeUpdate(prevProps, prevState)',(prevProps, prevState))
-		return 111
-	}
-
-	componentDidUpdate(prevProps, prevState,snapshot){
-		console.log('componentDidUpdate(prevProps, prevState,snapshot)',(prevProps, prevState,snapshot))
-	}
-
 	handleAdd(){
 		//console.log('btn..')
 		//console.log(this)
@@ -38,15 +20,10 @@ class App extends Component{
 		this.setState((preState)=>({
 			list:list,
 			task:''
-		}),()=>{
-			console.log(this.ul.childNodes)
-		})
-		// console.log(this.ul.childNodes)
+		}))
 	}
 	handleInput(ev){
-		//const val = ev.target.value;
-		//console.log(this.input)
-		const val = this.input.value;
+		const val = ev.target.value;
 		this.setState((preState)=>({
 			task:val
 		}))
@@ -76,16 +53,12 @@ class App extends Component{
 						)
 				})
 	}
-	componentDidMount(){
-		console.log('App componentDidMount')
-	}
 	render(){
-		console.log('App render')
 		return (
 			<div className='App'>
-				<input ref={(input)=>{this.input = input}} style={{width:900}} onChange={this.handleInput} value={this.state.task}/>
+				<input style={{width:900}} onChange={this.handleInput} value={this.state.task}/>
 				<button className='btn' onClick={this.handleAdd}>提交</button>
-				<ul className='list' ref={(ul)=>{this.ul = ul}}>
+				<ul className='list'>
 					{
 						/*
 						<li>吃饭</li>

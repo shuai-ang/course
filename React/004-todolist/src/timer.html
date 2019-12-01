@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="root">
+		<h1>hello</h1>
+		<p id="timer"></p>
+	</div>
+</body>
+<script>
+	var oRoot = document.getElementById('root');
+	var oTimer = document.getElementById('timer');
+	function tick(){
+		 oTimer.innerHTML = `${new Date().toLocaleString()}`
+	}
+	setInterval(tick,1000)
+</script>
+</html>

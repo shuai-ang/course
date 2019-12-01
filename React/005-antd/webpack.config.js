@@ -8,20 +8,15 @@ module.exports = {
   // entry: './src/index.js',
   //多入口
   entry:{
-    index:'./src/index.js',
-    about:'./src/about.js',
-    contact:'./src/contact.js',
+    index:'./src/index.js'
   },
-  //出口用来控制打包编译后的文件
   output: {
     // filename: 'bundle.js',
     filename: '[name]-[hash]-bundle.js',
-    // filename: '[name]-[chunkhash]-bundle.js',  //[chunkhash] chunk内容的hash,每一个chunkhash值都不同
     path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
-      //加载css
       {
         test: /\.css$/,
         use: [
@@ -51,23 +46,21 @@ module.exports = {
                   plugins: [["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]]
               }
           }               
-      }		   
-	  ]
+      }
+	 ]
   },
-  //实时重新加载页面
   devServer:{
     contentBase: './dist',//内容的目录
     port:8080//服务运行的端口
   },
-  //自动生成HTML
   plugins:[
     new htmlWebpackPlugin({
-        template:'./src/view/index.html',//模板文件
+        template:'./src/index.html',//模板文件
         filename:'index.html',//输出的文件名
         // inject:'head',//脚本写在那个标签里,默认是true(在body结束后)
         hash:true,//给生成的js/css文件添加一个唯一的hash
         chunks:['index','about']
     }),
-    new CleanWebpackPlugin()//清理输出文件夹
+    new CleanWebpackPlugin()
   ]
 }
