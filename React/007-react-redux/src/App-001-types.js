@@ -3,44 +3,76 @@ import './App.css'
 // import 'antd/dist/antd.css';
 import Item from './Item.js'
 import { Input,Button,Row,Col,List, Typography } from 'antd';
+import store from './store/index.js'
+import {CHANGE_ITEM,ADD_ITEM,DEL_ITEM} from './store/actionTypes.js'
+// import {changeAction,addAction} from './store/createActions.js'
 
 class App extends Component{
 	constructor(props){
 		super(props);
 		//初始化
+		/*
 		this.state = {
 			list:['吃饭','唱歌','跳舞','打豆豆'],
 			task:''
 		}
+		*/
 		this.handleInput = this.handleInput.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
+		console.log(store)
+		this.state = store.getState()
+		store.subscribe(()=>{
+			this.setState(store.getState())
+		})
 	}
 
 	handleAdd(){
-		//console.log('btn..')
-		//console.log(this)
+		/*
 		const list = [...this.state.list,this.state.task];
 		this.setState((preState)=>({
 			list:list,
 			task:''
 		}))
+		*/
 		// console.log(this.ul.childNodes)
+		const action = {
+			type:ADD_ITEM
+		}
+		
+
+		store.dispatch(action)
 	}
 	handleInput(ev){
 		const val = ev.target.value;
 		//console.log(this.input)
 		// const val = this.input.value;
+		/*
 		this.setState((preState)=>({
 			task:val
 		}))
+		*/
+		const action = {
+			type:CHANGE_ITEM,
+			payload:val
+		}
+		
+
+		store.dispatch(action)
 	}
 	handleDel(index){
 		// console.log(index)
+		/*
 		const list = [...this.state.list];
 		list.splice(index,1)
 		this.setState((preState)=>({
 			list:list
 		}))
+		*/
+		const action = {
+			type:DEL_ITEM,
+			payload:index
+		}
+		store.dispatch(action)
 	}
 	/*
 	getItems(){

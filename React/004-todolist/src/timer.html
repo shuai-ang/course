@@ -12,9 +12,8 @@
 </body>
 <script>
 	var oRoot = document.getElementById('root');
-	var oTimer = document.getElementById('timer');
 	function tick(){
-		 oTimer.innerHTML = `${new Date().toLocaleString()}`
+		 oRoot.innerHTML = `<h1>hello</h1><p>${new Date().toLocaleString()}</p>`
 	}
 	setInterval(tick,1000)
 </script>
