@@ -4,12 +4,8 @@ const defaultState = {
 	list:['吃饭','唱歌','跳舞','打豆豆'],
 	task:''
 }
-/*
-	1.reducer是一个纯函数(有固定的输入就有固定的输出)
-	2.reducer必须操作并返回newState,不能够操作state
-	state由store管理,因为store中的state由所有组件共享,
-	store通过newState改变自身的state数据,getState方法获得的state数据是store中的state
-*/
+
+
 export default (state=defaultState,action)=>{
 	// console.log(action)
 	if(action.type == CHANGE_ITEM){

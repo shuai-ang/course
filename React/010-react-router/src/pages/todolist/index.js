@@ -40,8 +40,8 @@ class Todolist extends Component{
 const mapStateToProps = (state)=>{
 	// console.log(state)
 	return {
-		list:state.todolist.list,
-		task:state.todolist.task
+		list:state.get('todolist').get('list'),
+		task:state.get('todolist').get('task')
 	}
 }
 const mapDispatchToProps = (dispatch)=>{

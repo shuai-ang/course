@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import './index.css'
 import { Input,Button,Row,Col,List, Typography } from 'antd';
-import {createActions} from './store/index.js'
+import * as createActions from './store/createActions.js'
 //容器组件
 class Todolist extends Component{
 	
@@ -40,8 +40,8 @@ class Todolist extends Component{
 const mapStateToProps = (state)=>{
 	// console.log(state)
 	return {
-		list:state.todolist.list,
-		task:state.todolist.task
+		list:state.list,
+		task:state.task
 	}
 }
 const mapDispatchToProps = (dispatch)=>{
