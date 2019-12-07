@@ -14,7 +14,9 @@ module.exports = {
   output: {
     // filename: 'bundle.js',
     filename: '[name]-[hash]-bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    //配置静态资源路径
+    publicPath:"/"
   },
   module: {
     rules: [

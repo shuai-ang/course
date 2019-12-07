@@ -76,7 +76,7 @@ class App extends Component{
 						)
 				})
 	}
-	componentDidMount(){
+	componentDidMount(){//组件挂载完毕执行,多用于发送ajax获取数据
 		console.log('App componentDidMount')
 	}
 	render(){
