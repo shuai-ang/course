@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-v-bind-绑定属性-class.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			font-size: 24px;
+		}
+		.error{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p class="active error">测试test</p>
+		<p :class="{active:true,error:true}">测试test</p>
+		<p :class="['active','error']">测试test</p>
+		<p :class="[isActive ? 'active':'','error']">测试test</p>
+	</div>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			isActive:false,
+			isError:false
+		}
+	})
+
+</script>
+</html>

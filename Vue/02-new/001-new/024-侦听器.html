@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-侦听器.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input v-model="fullname" type="text">
+		<p>{{firstName}}</p>
+		<p>{{lastName}}</p>
+		<p>{{fullname}}</p>
+	</div>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			firstName:'Wang',
+			lastName:'wu'
+		},
+		methods:{
+			
+		},
+		computed:{
+			fullname:{
+				get:function(){
+					return this.firstName +' '+ this.lastName
+				},
+				set:function(newValue){
+					var arr = newValue.split(' ')
+					this.firstName = arr[0]
+					this.lastName = arr[arr.length-1]
+				}
+			}
+		},
+		watch:{
+			fullname:function(){
+				console.log('fullname has been changed')
+			}
+		}
+	})
+
+</script>
+</html>

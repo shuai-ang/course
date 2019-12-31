@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-v-on-监听事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="count++">点击了{{count}}次</button>
+		<button @click="count++">点击了{{count}}次</button>
+		<button @click="addCount">点击了{{count}}次</button>
+		<button @click="addCount()">点击了{{count}}次</button>
+	</div>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			count:0
+		},
+		methods:{
+			addCount:function(){
+				this.count++
+			}
+		}
+	})
+
+</script>
+</html>
