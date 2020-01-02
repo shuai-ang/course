@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-v-bind-绑定属性-style.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p>测试test</p>
+		<p style="font-size: 32px;color: red">测试test</p>
+		<p :style="{fontSize: '32px',color: 'red'}">测试test1</p>
+		<p :style="{fontSize: fs,color: cl}">测试test2</p>
+		<p :style="[{fontSize: fs},{color: cl}]">测试test3</p>
+		<p :style="objStyle">测试test4</p>
+		<p :style="arrStyle">测试test5</p>
+	</div>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			fs:'32px',
+			cl:'purple',
+			objStyle:{
+				fontSize: '32px',
+				color: 'red'
+			},
+			arrStyle:[{fontSize: '32px'},{color: 'red'}]
+		}
+		
+	})
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-模板分离script.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+	<script id="button-counter" type="x-template">
+		<button v-on:click="count++">You clicked me {{ count }} times.</button>
+	</script>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+	Vue.component('button-counter',{
+		data:function(){
+			return {
+				count:0
+			}
+		},
+		template:'#button-counter'
+	})
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+		
+	})
+</script>
+</html>

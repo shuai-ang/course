@@ -19,9 +19,12 @@
 <body>
 	<div id="app">
 		<p class="active error">测试test</p>
-		<p :class="{active:true,error:true}">测试test</p>
-		<p :class="['active','error']">测试test</p>
-		<p :class="[isActive ? 'active':'','error']">测试test</p>
+		<p :class="{active:true,error:true}">测试test1</p>
+		<p :class="{active:isActive,error:isError}">测试test2</p>
+		<p :class="['active','error']">测试test3</p>
+		<p :class="[isActive ? 'active':'','error']">测试test4</p>
+		<p :class="objClass">objClass</p>
+		<p :class="arrClass">arrClass</p>
 	</div>
 </body>
 <script src="../../js/vue.js"></script>
@@ -29,8 +32,13 @@
 	var vm = new Vue({
 		el:'#app',
 		data:{
-			isActive:false,
-			isError:false
+			isActive:true,
+			isError:true,
+			objClass:{
+				active:true,
+				error:false
+			},
+			arrClass:['active','error']
 		}
 	})
 
