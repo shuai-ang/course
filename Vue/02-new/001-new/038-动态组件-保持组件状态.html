@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-动态组件-保持组件状态.html</title>
+	<style>
+		li{
+			list-style: none;
+		}
+		.active{
+			color:red;
+		}
+		.article-wrap{
+			display: flex;
+			flex-direction: row;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button 
+			v-for="(tab,index) in tabs"
+			@click="currentTab=tab"
+		>
+			{{tab}}
+		</button>
+		<keep-alive>
+			<component :is="currentComponent"></component>
+		</keep-alive>
+	</div>
+
+	<template id="tab-home">
+		<div>tab-home</div>
+	</template>
+	<template id="tab-article">
+		<div class="article-wrap">
+			<ul>
+				<li
+					v-for="(article,index) in articles"
+					@click="selectArticle = article"
+					:class="{active:selectArticle == article}"
+				>
+					{{article.title}}
+				</li>
+			</ul>
+			<div v-if="selectArticle">{{selectArticle.content}}</div>
+		</div>
+	</template>
+	<template id="tab-list">
+		<div>tab-list</div>
+	</template>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+	//定义组件
+	var Home = Vue.extend({
+		data:function(){
+			return {
+				
+			}
+		},
+		template:'#tab-home'
+	})
+	var Article = Vue.extend({
+		data:function(){
+			return {
+				articles:[
+					{
+						title:'跑步',
+						content:'早上六点去跑步'
+					},
+					{
+						title:'健身',
+						content:'下午四点去健身'
+					}
+				],
+				selectArticle:null
+			}
+		},
+		template:'#tab-article'
+	})
+	var List = Vue.extend({
+		data:function(){
+			return {
+				
+			}
+		},
+		template:'#tab-list'
+	})
+	Vue.component('tab-home',Home)
+	Vue.component('tab-article',Article)
+	Vue.component('tab-list',List)
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			currentTab:'home',
+			tabs:['home','article','list']
+		},
+		computed:{
+			currentComponent:{
+				get(){
+					return 'tab-' + this.currentTab
+				}
+			}
+		}
+	})
+</script>
+</html>

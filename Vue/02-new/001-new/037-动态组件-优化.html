@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-动态组件-优化.html</title>
+</head>
+<body>
+	<div id="app">
+		<button 
+			v-for="(tab,index) in tabs"
+			@click="currentTab=tab"
+		>
+			{{tab}}
+		</button>
+		<component :is="currentComponent"></component>
+	</div>
+
+	<template id="tab-home">
+		<div>tab-home</div>
+	</template>
+	<template id="tab-article">
+		<div>tab-article</div>
+	</template>
+	<template id="tab-list">
+		<div>tab-list</div>
+	</template>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+	//定义组件
+	var Home = Vue.extend({
+		data:function(){
+			return {
+				
+			}
+		},
+		template:'#tab-home'
+	})
+	var Article = Vue.extend({
+		data:function(){
+			return {
+				
+			}
+		},
+		template:'#tab-article'
+	})
+	var List = Vue.extend({
+		data:function(){
+			return {
+				
+			}
+		},
+		template:'#tab-list'
+	})
+	Vue.component('tab-home',Home)
+	Vue.component('tab-article',Article)
+	Vue.component('tab-list',List)
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			currentTab:'home',
+			tabs:['home','article','list']
+		},
+		computed:{
+			currentComponent:{
+				get(){
+					return 'tab-' + this.currentTab
+				}
+			}
+		}
+	})
+</script>
+</html>

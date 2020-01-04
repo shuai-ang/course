@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>032-组件-多层组件传值-定义组件.html</title>
+</head>
+<body>
+	<div id="app">
+		<todo-item v-for="(item,index) in items"
+			:key="index"
+			:task="item.task"
+			:dateline="item.dateline"
+		>
+			
+		</todo-item>
+	</div>
+	<template id="todo-item">
+		<div>
+			<task :task="task"></task>
+			<dateline :dateline="dateline"></dateline>
+		</div>
+	</template>
+	<template id="task">
+		<span>{{tag}}:{{task}}</span>
+	</template>
+	<template id="dateline">
+		<span>{{tag}}:{{dateline}}</span>
+	</template>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+	//定义组件
+	var Task = Vue.extend({
+		data:function(){
+			return {
+				tag:'安排'
+			}
+		},
+		template:'#task',
+		props:{
+			task:String
+		}
+	})
+	var Dateline = Vue.extend({
+		data:function(){
+			return {
+				tag:'时间'
+			}
+		},
+		template:'#dateline',
+		props:{
+			dateline:String
+		}
+	})
+	var TodoItem = Vue.extend({
+		data:function(){
+			return {
+				
+			}
+		},
+		template:'#todo-item',
+		components:{
+			task:Task,
+			dateline:Dateline
+		},
+		props:{
+			task:String,
+			dateline:String
+		}
+	})
+	Vue.component('todo-item',TodoItem)
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			items:[
+				{
+					task:'游泳',
+					dateline:'明天下午'
+				},
+				{
+					task:'读书',
+					dateline:'明天早上'
+				}
+			]
+		}
+		
+	})
+</script>
+</html>

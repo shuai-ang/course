@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-匿名插槽.html</title>
+</head>
+<body>
+	<div id="app">
+		<layout>首页主体</layout>
+	</div>
+	<template id="layout">
+		<div>
+			<div>顶部导航</div>
+			<slot>主体内容</slot>
+			<slot>主体列表</slot>
+			<div>底部导航</div>
+		</div>
+	</template>
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+	Vue.component('layout',{
+		data:function(){
+			return {
+				
+			}
+		},
+		template:'#layout',
+		
+	})
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		}
+	})
+</script>
+</html>
