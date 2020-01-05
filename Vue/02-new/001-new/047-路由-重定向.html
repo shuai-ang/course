@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-路由-重定向.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>
+		    <!-- 使用 router-link 组件来导航. -->
+		    <!-- 通过传入 `to` 属性指定链接. -->
+		    <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+		    <router-link to="/home">home</router-link>
+		    <router-link to="/article">article</router-link>
+		    <router-link to="/list">list</router-link>
+		  </p>
+		  <!-- 路由出口 -->
+		  <!-- 路由匹配到的组件将渲染在这里 -->
+		  <router-view></router-view>
+	</div>
+
+	<template id="home">
+		<div>home</div>
+	</template>
+	<template id="article">
+		<div>article</div>
+	</template>
+	<template id="list">
+		<div>list</div>
+	</template>
+</body>
+<script src="../../js/vue.js"></script>
+<script src="../../js/vue-router.js"></script>
+<script>
+	//定义组件
+	var Home = Vue.extend({
+		template:'#home'
+	})
+	var Article = Vue.extend({
+		template:'#article'
+	})
+	var List = Vue.extend({
+		template:'#list'
+	})
+	// 2. 定义路由
+	const routes = [
+	  { path: '/home', component: Home },
+	  { path: '/article', component: Article },
+	  { path: '/list', component: List },
+	  { path: '/', redirect: '/home' }
+	]
+	// 3. 创建 router 实例，然后传 `routes` 配置
+	var router = new VueRouter({
+		  routes // (缩写) 相当于 routes: routes
+	})
+	// 4. 创建和挂载根实例。
+	var app = new Vue({
+	  router
+	}).$mount('#app')
+</script>
+</html>
