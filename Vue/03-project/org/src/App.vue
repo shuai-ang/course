@@ -1,7 +1,7 @@
 <template>
     <div id="app">
        <Header />
-       <List />
+       <List :todos="todos"/>
        <Footer />
     </div>
 </template>
