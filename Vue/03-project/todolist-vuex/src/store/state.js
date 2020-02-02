@@ -10,7 +10,7 @@ export default {
 	          done:false
 	      },
 	      {
-	          task:'散步',
+	          task:'学习',
 	          done:false
 	      }
 	]

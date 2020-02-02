@@ -6,39 +6,40 @@
 </template>
 
 <script>
-
+    import { mapGetters } from 'vuex'
+    import { SELECT_ALL,DEL_SELECT_DONE } from '../store/types.js'
     export default{
       name:'Footer',
-      props:{
-        todos:Array,
-        selectAll:Function,
-        delSelectDone:Function
-      },
       computed:{
+        /*
         total:function(){
-            return this.todos.length
+            return this.$store.getters.total
         },
         totalDone:function(){
-            return this.todos.reduce((total,item)=>{
-                if(item.done){
-                    total = total + 1
-                }
-                return total
-            },0)
+            return this.$store.getters.totalDone
         },
+        */
+        // 使用对象展开运算符将 getter 混入 computed 对象中
+        ...mapGetters([
+          'total',
+          'totalDone',
+          // ...
+        ]),
         allDone:{
             get(){
-                return this.totalDone == this.total && (this.total != 0)
+                return this.$store.getters.allDone
             },
             set(value){
-                this.selectAll(value)
+                // this.selectAll(value)
+                this.$store.dispatch(SELECT_ALL,value)
             }
         }
       },
       methods:{
             delSelect:function(){
                 if(window.confirm('您确定删除所选任务吗?')){
-                    this.delSelectDone()
+                    // this.delSelectDone()
+                    this.$store.dispatch(DEL_SELECT_DONE)
                 }
             }
       }

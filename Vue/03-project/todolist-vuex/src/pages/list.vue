@@ -1,11 +1,10 @@
 <template>
     <div id="List">
        <Item
-       		v-for="(todo,index) in todos"
+       		v-for="(todo,index) in this.$store.state.todos"
        		:key="index"
        		:todo="todo" 
        		:index="index"
-       		:delTodo="delTodo"
        />
     </div>
 </template>
@@ -18,8 +17,7 @@
 	      Item
       },
       props:{
-      	todos:Array,
-      	delTodo:Function
+      	todos:Array
       }
     }
 </script>

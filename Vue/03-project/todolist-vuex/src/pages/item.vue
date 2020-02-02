@@ -15,7 +15,7 @@
 </template>
 
 <script>
-
+    import { DEL_TODO } from '../store/types.js'
     export default{
       name:'Item',
       data(){
@@ -31,15 +31,14 @@
       	  },
       	  handleDel:function(){
       	  	if(window.confirm('您确定删除该任务吗?')){
-      	  		this.delTodo(this.index)
+      	  		this.$store.dispatch(DEL_TODO,this.index)
       	  	}
       	  	
       	  }
       },
       props:{
       	  todo:Object,
-      	  index:Number,
-      	  delTodo:Function
+      	  index:Number
       }
     }
 </script>
